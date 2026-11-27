@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Art of Courtesy - A Modern Guide to Etiquette</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Light Theme (Default) */
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --accent: #3498db;
+            --gold: #f39c12;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --bg-body: #f5f7fa;
+            --bg-card: #ffffff;
+            --bg-nav: rgba(255, 255, 255, 0.95);
+            --text-primary: #1a252f;
+            --text-secondary: #555555;
+            --text-muted: #7f8c8d;
+            --border-color: #e0e0e0;
+            --shadow-sm: 0 2px 10px rgba(0,0,0,0.08);
+            --shadow-md: 0 5px 20px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.15);
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --toc-bg: #ffffff;
+            --toc-hover: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --footer-bg: #1a252f;
+            --footer-text: #ffffff;
+            --whatsapp-bg: #25D366;
+            --whatsapp-shadow: rgba(37, 211, 102, 0.4);
+            --highlight-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            --highlight-border: var(--accent);
+        }
+
+        /* Dark Theme */
+        [data-theme="dark"] {
+            --primary: #ecf0f1;
+            --secondary: #e74c3c;
+            --accent: #5dade2;
+            --gold: #f1c40f;
+            --light: #2c3e50;
+            --dark: #f8f9fa;
+            --bg-body: #0f1419;
+            --bg-card: #1a232e;
+            --bg-nav: rgba(26, 35, 46, 0.95);
+            --text-primary: #f8f9fa;
+            --text-secondary: #bdc3c7;
+            --text-muted: #95a5a6;
+            --border-color: #34495e;
+            --shadow-sm: 0 2px 10px rgba(0,0,0,0.3);
+            --shadow-md: 0 5px 20px rgba(0,0,0,0.4);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.5);
+            --gradient-1: linear-gradient(135deg, #4a567a 0%, #5a4a7a 100%);
+            --gradient-2: linear-gradient(135deg, #7a4a6a 0%, #8a4a5a 100%);
+            --gradient-3: linear-gradient(135deg, #3a5a7a 0%, #2a6a7a 100%);
+            --toc-bg: #1a232e;
+            --toc-hover: linear-gradient(135deg, #4a567a 0%, #5a4a7a 100%);
+            --footer-bg: #0a0f14;
+            --footer-text: #ecf0f1;
+            --whatsapp-bg: #128C7E;
+            --whatsapp-shadow: rgba(18, 140, 126, 0.5);
+            --highlight-bg: linear-gradient(135deg, #1a232e 0%, #2c3e50 100%);
+            --highlight-border: var(--accent);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-body);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text-primary); }
+
+        /* ========== DARK MODE TOGGLE ========== */
+        .theme-toggle {
+            position: fixed;
+            top: 85px;
+            right: 25px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1001;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(15deg) scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .theme-toggle i {
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            transition: transform 0.5s ease;
+        }
+
+        .theme-toggle.sun-mode i { transform: rotate(0deg); }
+        .theme-toggle.moon-mode i { transform: rotate(180deg); }
+
+        /* ========== NAVIGATION STYLES ========== */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--bg-nav);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            white-space: nowrap;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            flex: 1;
+            justify-content: flex-end;
+            min-width: 300px;
+        }
+
+        .chapter-select-wrapper {
+            position: relative;
+            min-width: 200px;
+        }
+
+        .chapter-select {
+            width: 100%;
+            padding: 0.5rem 2.5rem 0.5rem 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 25px;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237f8c8d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+        }
+
+        .chapter-select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+
+        .toc-btn {
+            padding: 0.5rem 1.2rem;
+            background: var(--gradient-1);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .toc-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 0.3rem;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding: 0.3rem 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent) transparent;
+            max-width: 50%;
+        }
+
+        .nav-menu::-webkit-scrollbar { height: 4px; }
+        .nav-menu::-webkit-scrollbar-track { background: transparent; }
+        .nav-menu::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+        .nav-btn {
+            padding: 0.4rem 0.9rem;
+            border: none;
+            background: var(--light);
+            color: var(--text-primary);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: var(--gradient-1);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* ========== TABLE OF CONTENTS MODAL ========== */
+        .toc-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            justify-content: flex-end;
+            z-index: 2000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .toc-overlay.active { display: flex; }
+
+        .toc-panel {
+            width: 100%;
+            max-width: 400px;
+            background: var(--toc-bg);
+            height: 100%;
+            padding: 2rem;
+            overflow-y: auto;
+            box-shadow: -5px 0 30px rgba(0,0,0,0.3);
+            animation: slideIn 0.3s ease;
+            border-left: 1px solid var(--border-color);
+        }
+
+        .toc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .toc-header h3 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .toc-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-primary);
+            transition: transform 0.3s;
+        }
+
+        .toc-close:hover { transform: rotate(90deg); color: var(--secondary); }
+
+        .toc-search {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .toc-search input {
+            width: 100%;
+            padding: 0.8rem 1rem 0.8rem 2.5rem;
+            border: 2px solid var(--border-color);
+            border-radius: 25px;
+            font-size: 0.95rem;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            transition: border-color 0.3s;
+        }
+
+        .toc-search input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .toc-search i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        .toc-list { list-style: none; }
+        .toc-item { margin-bottom: 0.5rem; }
+
+        .toc-link {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.9rem 1.2rem;
+            background: var(--light);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: all 0.3s;
+            border-left: 4px solid transparent;
+        }
+
+        .toc-link:hover, .toc-link.active {
+            background: var(--toc-hover);
+            color: white;
+            border-left-color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .toc-link .chapter-num {
+            background: var(--bg-card);
+            color: var(--primary);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .toc-link:hover .chapter-num,
+        .toc-link.active .chapter-num {
+            background: var(--gold);
+            color: var(--dark);
+        }
+
+        .toc-link .chapter-title { flex: 1; text-align: left; }
+        .toc-link .chapter-icon { color: var(--accent); font-size: 1.1rem; }
+        .toc-link:hover .chapter-icon, .toc-link.active .chapter-icon { color: white; }
+
+        .toc-no-results {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            display: none;
+        }
+
+        .toc-no-results.active { display: block; }
+
+        /* ========== PROGRESS BAR ========== */
+        .progress-bar {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--border-color);
+            z-index: 999;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-1);
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        /* ========== HERO & CONTENT ========== */
+        .hero {
+            margin-top: 130px;
+            padding: 4rem 2rem;
+            background: var(--gradient-1);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: white;
+            color: var(--primary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .chapter-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            display: none;
+        }
+
+        .chapter-container.active { display: block; animation: fadeIn 0.5s ease; }
+
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--bg-card);
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        .chapter-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .chapter-header h2 {
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .chapter-header .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .content-section {
+            background: var(--bg-card);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s;
+            border: 1px solid var(--border-color);
+        }
+
+        .content-section:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .content-section h3 {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .content-section h3::before {
+            content: '';
+            width: 4px;
+            height: 25px;
+            background: var(--gradient-2);
+            border-radius: 2px;
+        }
+
+        .content-section p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        .highlight-box {
+            background: var(--highlight-bg);
+            padding: 1.5rem;
+            border-left: 4px solid var(--highlight-border);
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .diagram-container {
+            background: var(--bg-card);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .diagram-container h4 {
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            font-size: 1.3rem;
+        }
+
+        .table-setting {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: var(--light);
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+        }
+
+        .table-item {
+            padding: 1rem;
+            background: var(--bg-card);
+            border-radius: 10px;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .table-item i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-content { padding: 0 1rem; }
+            .hero { margin-top: 150px; }
+            .hero h1 { font-size: 2rem; }
+            .chapter-header h2 { font-size: 1.8rem; }
+            .nav-menu { display: none; }
+            .content-section { padding: 1.5rem; }
+            .toc-panel { max-width: 100%; }
+            .nav-controls { justify-content: center; }
+            .theme-toggle { top: 80px; right: 15px; width: 45px; height: 45px; }
+        }
+
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            gap: 1rem;
+        }
+
+        .nav-chapter-btn {
+            padding: 1rem 2rem;
+            background: var(--gradient-1);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-chapter-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .nav-chapter-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .quick-tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .tip-card {
+            background: var(--gradient-1);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .tip-card:hover { transform: translateY(-5px); }
+        .tip-card i { font-size: 2rem; margin-bottom: 1rem; }
+        .tip-card h4 { margin-bottom: 0.5rem; }
+
+        .divider {
+            height: 3px;
+            background: var(--gradient-1);
+            border: none;
+            margin: 3rem 0;
+            border-radius: 3px;
+        }
+
+        .quote-box {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--light);
+            border-radius: 15px;
+            margin: 2rem 0;
+            position: relative;
+            border: 1px solid var(--border-color);
+        }
+
+        .quote-box::before,
+        .quote-box::after {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent);
+            position: absolute;
+            opacity: 0.3;
+        }
+
+        .quote-box::before { top: 10px; left: 20px; }
+        .quote-box::after { bottom: -20px; right: 20px; }
+
+        .etiquette-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .etiquette-item {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--gold);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .etiquette-item h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer & WhatsApp */
+        .site-footer {
+            background: var(--footer-bg);
+            color: var(--footer-text);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .site-footer p { margin: 0.3rem 0; opacity: 0.9; }
+        .site-footer a { color: var(--gold); text-decoration: none; font-weight: 500; }
+        .site-footer a:hover { text-decoration: underline; }
+
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 25px;
+            right: 25px;
+            background: var(--whatsapp-bg);
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 0 4px 20px var(--whatsapp-shadow);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px var(--whatsapp-shadow);
+        }
+
+        .whatsapp-tooltip {
+            position: fixed;
+            bottom: 95px;
+            right: 25px;
+            background: var(--footer-bg);
+            color: var(--footer-text);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            z-index: 999;
+            border: 1px solid var(--border-color);
+        }
+
+        .whatsapp-float:hover + .whatsapp-tooltip { opacity: 1; }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 1.5rem;
+            }
+            .whatsapp-tooltip {
+                bottom: 85px;
+                right: 20px;
+                font-size: 0.8rem;
+            }
+        }
+
+        .keyboard-hint {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 0.5rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <button class="theme-toggle sun-mode" id="themeToggle" title="Toggle dark mode" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/233534381128" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <span class="whatsapp-tooltip">Chat with us on WhatsApp</span>
+
+    <!-- Enhanced Navigation -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <div class="logo"><i class="fas fa-crown"></i> CourtesyGuide</div>
+            
+            <div class="nav-controls">
+                <div class="chapter-select-wrapper">
+                    <select class="chapter-select" id="chapterDropdown" onchange="navigateToChapter(this.value)">
+                        <option value="">📚 Select a Topic...</option>
+                        <option value="0">🏠 At Home</option>
+                        <option value="1">🍽️ At Table</option>
+                        <option value="2">👔 Clearness and Dress</option>
+                        <option value="3">🔄 Personal Habits</option>
+                        <option value="4">🚶 Deportment</option>
+                        <option value="5">💬 Conversation</option>
+                        <option value="6">⛪ God's House</option>
+                        <option value="7">🎓 At School</option>
+                        <option value="8">🏢 Extras For Boarders</option>
+                        <option value="9">⚽ On The Sport Field</option>
+                        <option value="10">🎮 Pastime</option>
+                        <option value="11">🏙️ In Public</option>
+                        <option value="12">✈️ Traveling</option>
+                        <option value="13">🤝 Visits To Friends</option>
+                        <option value="14">✉️ Letters</option>
+                        <option value="15">🇺🇸 Civic Spirit</option>
+                        <option value="16">🎯 Before We Go</option>
+                    </select>
+                </div>
+                <button class="toc-btn" onclick="toggleTOC()">
+                    <i class="fas fa-list"></i> Table of Contents
+                </button>
+            </div>
+
+            <div class="nav-menu" id="navMenu">
+                <button class="nav-btn active" onclick="showChapter(0)">At Home</button>
+                <button class="nav-btn" onclick="showChapter(1)">At Table</button>
+                <button class="nav-btn" onclick="showChapter(2)">Dress</button>
+                <button class="nav-btn" onclick="showChapter(3)">Habits</button>
+                <button class="nav-btn" onclick="showChapter(4)">Deportment</button>
+                <button class="nav-btn" onclick="showChapter(5)">Conversation</button>
+                <button class="nav-btn" onclick="showChapter(6)">God's House</button>
+                <button class="nav-btn" onclick="showChapter(7)">School</button>
+                <button class="nav-btn" onclick="showChapter(8)">Boarders</button>
+                <button class="nav-btn" onclick="showChapter(9)">Sports</button>
+                <button class="nav-btn" onclick="showChapter(10)">Pastime</button>
+                <button class="nav-btn" onclick="showChapter(11)">Public</button>
+                <button class="nav-btn" onclick="showChapter(12)">Traveling</button>
+                <button class="nav-btn" onclick="showChapter(13)">Visits</button>
+                <button class="nav-btn" onclick="showChapter(14)">Letters</button>
+                <button class="nav-btn" onclick="showChapter(15)">Civic</button>
+                <button class="nav-btn" onclick="showChapter(16)">Conclusion</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Table of Contents Modal -->
+    <div class="toc-overlay" id="tocOverlay" onclick="closeTOC(event)">
+        <div class="toc-panel" onclick="event.stopPropagation()">
+            <div class="toc-header">
+                <h3><i class="fas fa-book"></i> Table of Contents</h3>
+                <button class="toc-close" onclick="toggleTOC()">&times;</button>
+            </div>
+            <div class="toc-search">
+                <i class="fas fa-search"></i>
+                <input type="text" id="tocSearch" placeholder="Search topics..." onkeyup="filterTOC()">
+            </div>
+            <ul class="toc-list" id="tocList">
+                <li class="toc-item"><a href="#" class="toc-link active" onclick="showChapter(0); toggleTOC(); return false;"><span class="chapter-num">1</span><i class="chapter-icon fas fa-home"></i><span class="chapter-title">At Home</span></a></li>
+                <li class="toc-item"><a href="#" class="toc-link" onclick="showChapter(1); toggleTOC(); return false;"><span class="chapter-num">2</span><i class="chapter-icon fas fa-utensils"></i><span class="chapter-title">At Table</span></a></li>
+                <li class="toc-item"><a href="#" class="toc-link" onclick="showChapter(2); toggleTOC(); return false;"><span class="chapter-num">3</span><i class="chapter-icon fas fa-tshirt"></i><span class="chapter-title">Clearness and Dress</span></a></li>
+                <li class="toc-item"><a href="#" class="toc-link" onclick="showChapter(3); toggleTOC(); return false;"><span class="chapter-num">4</span><i class="chapter-icon fas fa-user-check"></i><span class="chapter-title">Personal Habits</span></a></li>
+                <li class="toc-item"><a href="#" class="toc-link" onclick="showChapter(4); toggleTOC(); return false;"><span class="chapter-num">5</span><i class="chapter-icon fas fa-walking"></i><span class="chapter-title">Deportment</span></a></li>
+                <li class="toc-item"><a href="#" class="toc-link" onclick="showChapter(5); toggleTOC(); return false;"><span class="chapter-num">6</span><i class="chapter-icon fas fa-comments"></i><span class="chapter-title">Conversation</span></a></li>
+                <li class="toc-item"><a href="#" class="toc-link" onclick="showChapter(6); toggleTOC(); return false;"><span class="chapter-num">7</span><i class="chapter-icon fas fa-church"></i><span class="chapter-title">God's House</span></a></li>
+                <li class="toc-item"><a href="#" class="toc-link" onclick="showChapter(7); toggleTOC(); return false;"><span class="chapter-num">8</span><i class="chapter-icon fas fa-graduation-cap"></i><span class="chapter-title">At School</span></a></li>
+                <li class="toc-item"><a href="#" class="toc-link" onclick="showChapter(8); toggleTOC(); return false;"><span class="chapter-num">9</span><i class="chapter-icon fas fa-building"></i><span class="chapter-title">Extras For Boarders</span></a></li>
+                <li class="toc-item"><a href="#" class="toc-link" onclick="showChapter(9); toggleTOC(); return false;"><span class="chapter-num">10</span><i class="chapter-icon fas fa-futbol"></i><span class="chapter-title">On The Sport Field</span></a></li>
+                <li class="toc-item"><a href="#" class="toc-link" onclick="showChapter(10); toggleTOC(); return false;"><span class="chapter-num">11</span><i class="chapter-icon fas fa-gamepad"></i><span class="chapter-title">Pastime</span></a></li>
+                <li class="toc-item"><a href="#" class="toc-link" onclick="showChapter(11); toggleTOC(); return false;"><span class="chapter-num">12</span><i class="chapter-icon fas fa-city"></i><span class="chapter-title">In Public</span></a></li>
+                <li class="toc-item"><a href="#" class="toc-link" onclick="showChapter(12); toggleTOC(); return false;"><span class="chapter-num">13</span><i class="chapter-icon fas fa-plane"></i><span class="chapter-title">Traveling</span></a></li>
+                <li class="toc-item"><a href="#" class="toc-link" onclick="showChapter(13); toggleTOC(); return false;"><span class="chapter-num">14</span><i class="chapter-icon fas fa-handshake"></i><span class="chapter-title">Visits To Friends</span></a></li>
+                <li class="toc-item"><a href="#" class="toc-link" onclick="showChapter(14); toggleTOC(); return false;"><span class="chapter-num">15</span><i class="chapter-icon fas fa-envelope-open-text"></i><span class="chapter-title">Letters</span></a></li>
+                <li class="toc-item"><a href="#" class="toc-link" onclick="showChapter(15); toggleTOC(); return false;"><span class="chapter-num">16</span><i class="chapter-icon fas fa-flag-usa"></i><span class="chapter-title">Civic Spirit</span></a></li>
+                <li class="toc-item"><a href="#" class="toc-link" onclick="showChapter(16); toggleTOC(); return false;"><span class="chapter-num">17</span><i class="chapter-icon fas fa-road"></i><span class="chapter-title">Before We Go</span></a></li>
+            </ul>
+            <div class="toc-no-results" id="tocNoResults">
+                <i class="fas fa-search" style="font-size: 2rem; margin-bottom: 1rem; opacity: 0.5;"></i>
+                <p>No topics found matching your search.</p>
+            </div>
+            <p class="keyboard-hint"><i class="fas fa-keyboard"></i> Tip: Use ← → arrow keys to navigate chapters</p>
+        </div>
+    </div>
+
+    <section class="hero">
+        <h1>The Art of Courtesy</h1>
+        <p>A comprehensive guide to modern etiquette and gracious living. Master the timeless principles that build respect, foster relationships, and create a more harmonious world.</p>
+        <a href="#" class="hero-cta" onclick="showChapter(0); return false;">
+            <i class="fas fa-book-open"></i> Begin Your Journey
+        </a>
+        <br><br>
+        <a href="index.html">
+            <i class="fas fa-book-open"></i> <b><i><span style="font-size:20px; color:gold">Back to Portfolio💼</span></i></b>
+        </a>            
+    </section>
+
+    <!-- ========== COMPLETE CHAPTERS WITH FULL CONTENT ========== -->
+    
+    <!-- Chapter 1: At Home -->
+    <div class="chapter-container active" id="chapter-0">
+        <div class="chapter-header">
+            <div class="chapter-icon"><i class="fas fa-home"></i></div>
+            <h2>At Home</h2>
+            <p class="subtitle">Where courtesy begins and character is formed</p>
+        </div>
+        <div class="content-section">
+            <h3>The Foundation of Courtesy</h3>
+            <p>Home is the first school of manners, where children learn the fundamental principles of respect, consideration, and kindness. The habits formed within the family circle become the foundation upon which all future social interactions are built. It is within these familiar walls that we first discover the joy of making others comfortable and the satisfaction of contributing to a harmonious household.</p>
+            <p>The practice of courtesy at home requires consistency and genuine care for family members. It means remembering to say "please" and "thank you" even to those we see every day, acknowledging that familiarity should never breed contempt or carelessness. When we treat our family members with the same respect we would show to honored guests, we create an atmosphere of mutual appreciation and love.</p>
+            <p>Respect for privacy is essential in maintaining harmonious home relationships. Knock before entering closed doors, honor requests for personal space, and understand that each family member has the right to moments of solitude. This respect for boundaries teaches important lessons about consent and consideration that extend far beyond the home environment.</p>
+            <p>Morning greetings set the tone for the entire day. A cheerful "good morning" accompanied by a warm smile can transform the atmosphere of a household, creating positive energy that carries through daily activities. Similarly, acknowledging family members when they return home shows that their presence is valued and missed during their absence.</p>
+            <p>Sharing household responsibilities is a practical expression of courtesy and consideration. Rather than viewing chores as burdensome obligations, approach them as opportunities to contribute to the family's wellbeing. Offer to help without being asked, complete your assigned tasks thoroughly and promptly, and recognize the efforts others make to maintain the home.</p>
+        </div>
+        <div class="diagram-container">
+            <h4><i class="fas fa-chart-pie"></i> The Pillars of Home Courtesy</h4>
+            <div class="quick-tips">
+                <div class="tip-card"><i class="fas fa-heart"></i><h4>Respect</h4><p>Honor boundaries and treat family with dignity</p></div>
+                <div class="tip-card"><i class="fas fa-hands-helping"></i><h4>Consideration</h4><p>Think of others' needs in your actions</p></div>
+                <div class="tip-card"><i class="fas fa-comments"></i><h4>Communication</h4><p>Speak kindly and listen actively</p></div>
+                <div class="tip-card"><i class="fas fa-home"></i><h4>Responsibility</h4><p>Contribute to household harmony</p></div>
+            </div>
+        </div>
+        <div class="chapter-nav">
+            <button class="nav-chapter-btn" disabled><i class="fas fa-arrow-left"></i> Previous</button>
+            <button class="nav-chapter-btn" onclick="showChapter(1)">Next: At Table <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Chapter 2: At Table -->
+    <div class="chapter-container" id="chapter-1">
+        <div class="chapter-header">
+            <div class="chapter-icon"><i class="fas fa-utensils"></i></div>
+            <h2>At Table</h2>
+            <p class="subtitle">The art of dining with grace and consideration</p>
+        </div>
+        <div class="content-section">
+            <h3>The Importance of Table Manners</h3>
+            <p>Table manners serve as a universal language of respect and refinement, communicating consideration for fellow diners and appreciation for the meal provided. Proper etiquette at the table demonstrates self-discipline, awareness of others, and respect for social conventions that have evolved over centuries to facilitate pleasant dining experiences.</p>
+            <p>Good table manners begin before the meal even starts. Arrive on time for scheduled meals, wash your hands before sitting down, and wait for everyone to be served before beginning to eat. When dining as a guest, follow the host's lead regarding when to start eating and which utensils to use, observing quietly if uncertain about proper protocol.</p>
+            <p>The foundation of excellent table manners rests on the principle of making others comfortable. This means eating quietly without making unnecessary noise, chewing with your mouth closed, and avoiding behaviors that might disturb or disgust fellow diners. Remember that dining is both a necessity and a social occasion, requiring balance between satisfying hunger and maintaining pleasant company.</p>
+            <p>Utensil usage demonstrates refinement and consideration. Work from the outside in, using the utensils farthest from your plate first for each course. Hold forks properly, cut only one or two bites at a time, and use your knife to guide food onto your fork when appropriate. These small details communicate your respect for the dining experience and your fellow diners.</p>
+            <p>Conversation during meals should be pleasant, inclusive, and appropriate to the setting. Choose topics that interest everyone at the table, avoiding controversial subjects or discussions that might make others uncomfortable. Practice balanced conversation, speaking clearly but not dominating, and always listen actively to what others share.</p>
+        </div>
+        <div class="diagram-container">
+            <h4><i class="fas fa-silverware"></i> Proper Table Setting</h4>
+            <div class="table-setting">
+                <div class="table-item"><i class="fas fa-utensils"></i><p><strong>Forks</strong><br>Left side</p></div>
+                <div class="table-item"><i class="fas fa-circle"></i><p><strong>Plate</strong><br>Center</p></div>
+                <div class="table-item"><i class="fas fa-knife"></i><p><strong>Knife & Spoon</strong><br>Right side</p></div>
+                <div class="table-item"><i class="fas fa-glass-whiskey"></i><p><strong>Glasses</strong><br>Above right</p></div>
+                <div class="table-item"><i class="fas fa-square"></i><p><strong>Napkin</strong><br>On plate or left</p></div>
+                <div class="table-item"><i class="fas fa-coffee"></i><p><strong>Cup</strong><br>Right of spoon</p></div>
+            </div>
+        </div>
+        <div class="chapter-nav">
+            <button class="nav-chapter-btn" onclick="showChapter(0)"><i class="fas fa-arrow-left"></i> Previous: At Home</button>
+            <button class="nav-chapter-btn" onclick="showChapter(2)">Next: Dress <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Chapter 3: Clearness and Dress -->
+    <div class="chapter-container" id="chapter-2">
+        <div class="chapter-header">
+            <div class="chapter-icon"><i class="fas fa-tshirt"></i></div>
+            <h2>Clearness and Dress</h2>
+            <p class="subtitle">Presenting your best self through appearance and grooming</p>
+        </div>
+        <div class="content-section">
+            <h3>The Language of Appearance</h3>
+            <p>Your appearance communicates volumes before you speak a single word. Clean, well-maintained clothing and proper grooming demonstrate self-respect and consideration for others. When you present yourself neatly, you show that you value the people you meet and the occasions you attend, making a positive first impression that opens doors to meaningful interactions.</p>
+            <p>Personal hygiene forms the foundation of good appearance. Regular bathing, clean hair, trimmed nails, and fresh breath are non-negotiable aspects of courtesy. These basic practices prevent discomfort to others and demonstrate that you take pride in yourself and respect those around you. Good hygiene is not vanity; it is a fundamental social responsibility.</p>
+            <p>Dress appropriately for each occasion, considering the setting, time of day, and cultural expectations. Formal events require formal attire, while casual gatherings allow relaxed clothing. When uncertain about dress codes, it is better to be slightly overdressed than underdressed. Research expectations in advance when attending unfamiliar events, and when in doubt, ask your host for guidance.</p>
+            <p>Clothing should be clean, pressed, and in good repair. Regularly inspect garments for stains, tears, or loose buttons, addressing these issues promptly. Shoes should be polished and in good condition, as they often receive more attention than people realize. Well-maintained clothing lasts longer and always presents better than expensive items that are neglected or worn.</p>
+            <p>Choose clothing that fits properly and flatters your figure without being too tight or too loose. Clothes that fit well enhance your confidence and comfort, allowing you to focus on interactions rather than adjusting uncomfortable garments. Invest in quality basics that can be mixed and matched, creating versatile wardrobes that serve multiple occasions while maintaining a polished appearance.</p>
+        </div>
+        <div class="diagram-container">
+            <h4><i class="fas fa-check-circle"></i> Daily Grooming Checklist</h4>
+            <div class="etiquette-grid">
+                <div class="etiquette-item"><h4><i class="fas fa-shower"></i> Personal Hygiene</h4><p>Daily bathing, deodorant, oral care</p></div>
+                <div class="etiquette-item"><h4><i class="fas fa-cut"></i> Grooming</h4><p>Trimmed nails, neat hair, clean-shaven or groomed facial hair</p></div>
+                <div class="etiquette-item"><h4><i class="fas fa-tshirt"></i> Clothing</h4><p>Clean, pressed, no stains or tears</p></div>
+                <div class="etiquette-item"><h4><i class="fas fa-shoe-prints"></i> Footwear</h4><p>Clean, polished, in good repair</p></div>
+            </div>
+        </div>
+        <div class="chapter-nav">
+            <button class="nav-chapter-btn" onclick="showChapter(1)"><i class="fas fa-arrow-left"></i> Previous: At Table</button>
+            <button class="nav-chapter-btn" onclick="showChapter(3)">Next: Personal Habits <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Chapter 4: Personal Habits -->
+    <div class="chapter-container" id="chapter-3">
+        <div class="chapter-header">
+            <div class="chapter-icon"><i class="fas fa-user-check"></i></div>
+            <h2>Personal Habits</h2>
+            <p class="subtitle">Cultivating daily practices that reflect character</p>
+        </div>
+        <div class="content-section">
+            <h3>Building Character Through Habits</h3>
+            <p>Personal habits shape character and influence how others perceive and interact with you. Courteous habits include punctuality, organization, and consideration for shared spaces. When you consistently demonstrate these qualities, you build a reputation for reliability and respect that enhances all your relationships, both personal and professional.</p>
+            <p>Punctuality is a powerful expression of respect for others' time. Arrive on time for appointments, meetings, and social gatherings, or communicate promptly if delays are unavoidable. Being consistently late sends a message that your time is more valuable than others', creating resentment and damaging relationships. Plan ahead, account for potential delays, and prioritize being on time.</p>
+            <p>Organization and tidiness in personal spaces reflect self-discipline and respect for your environment. Keep your belongings orderly, maintain clean living and working spaces, and develop systems that help you function efficiently. Disorganization creates stress for you and can inconvenience others who depend on you or share your spaces.</p>
+            <p>Mindful consumption and environmental awareness demonstrate consideration for the broader community. Practice moderation, avoid waste, recycle when possible, and be conscious of your impact on shared resources. These habits show that you think beyond immediate personal convenience to consider the wellbeing of others and future generations.</p>
+            <p>Develop habits of gratitude and positive thinking. Regularly acknowledge blessings, express appreciation to others, and approach challenges with optimism. These mental habits not only improve your own wellbeing but also make you more pleasant to be around. People are naturally drawn to those who radiate positivity and gratitude rather than constant complaint.</p>
+        </div>
+        <div class="highlight-box">
+            <strong>Remember:</strong> Good habits are formed through consistent practice. Start with one or two areas of focus, practice them daily until they become automatic, then add new habits. Small, consistent improvements create lasting transformation.
+        </div>
+        <div class="chapter-nav">
+            <button class="nav-chapter-btn" onclick="showChapter(2)"><i class="fas fa-arrow-left"></i> Previous: Dress</button>
+            <button class="nav-chapter-btn" onclick="showChapter(4)">Next: Deportment <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Chapter 5: Deportment -->
+    <div class="chapter-container" id="chapter-4">
+        <div class="chapter-header">
+            <div class="chapter-icon"><i class="fas fa-walking"></i></div>
+            <h2>Deportment</h2>
+            <p class="subtitle">Carrying yourself with grace and confidence</p>
+        </div>
+        <div class="content-section">
+            <h3>The Art of Physical Presence</h3>
+            <p>Deportment encompasses your posture, movement, and physical presence in the world. Good deportment communicates confidence, self-respect, and awareness of your surroundings. Standing and sitting with proper posture not only presents you favorably but also improves your health, breathing, and overall energy levels, making you more engaged and present in interactions.</p>
+            <p>Proper posture involves keeping your head up, shoulders back but relaxed, and spine aligned. Whether standing, sitting, or walking, maintain this alignment without appearing stiff or unnatural. Good posture takes practice but becomes habitual with conscious effort. It immediately enhances your appearance, making you look taller, more confident, and more approachable.</p>
+            <p>Movement should be deliberate and controlled rather than hurried or clumsy. Walk with purpose but not haste, move smoothly and quietly, and be aware of your spatial relationship to others. Avoid bumping into people, knocking things over, or moving in ways that disrupt those around you. Graceful movement demonstrates body awareness and consideration.</p>
+            <p>Gestures should be natural and moderate, enhancing communication without becoming distracting. Avoid excessive hand movements, fidgeting, or nervous habits that draw attention away from your message. Conversely, don't remain rigidly still; appropriate gestures show engagement and help convey your thoughts more effectively. Find the balance that feels natural and authentic.</p>
+            <p>Your facial expressions significantly impact how others perceive and respond to you. Maintain pleasant, open expressions that invite interaction. Smile genuinely when appropriate, make appropriate eye contact, and ensure your expressions match your words. A warm, approachable demeanor makes others feel comfortable and valued in your presence.</p>
+        </div>
+        <div class="diagram-container">
+            <h4><i class="fas fa-ruler-vertical"></i> Proper Posture Guide</h4>
+            <div class="quick-tips">
+                <div class="tip-card"><i class="fas fa-arrows-alt-v"></i><h4>Standing</h4><p>Head up, shoulders back, weight balanced</p></div>
+                <div class="tip-card"><i class="fas fa-chair"></i><h4>Sitting</h4><p>Back straight, feet flat, knees together</p></div>
+                <div class="tip-card"><i class="fas fa-walking"></i><h4>Walking</h4><p>Smooth strides, purposeful pace</p></div>
+                <div class="tip-card"><i class="fas fa-smile"></i><h4>Expression</h4><p>Pleasant, engaged, appropriate</p></div>
+            </div>
+        </div>
+        <div class="chapter-nav">
+            <button class="nav-chapter-btn" onclick="showChapter(3)"><i class="fas fa-arrow-left"></i> Previous: Habits</button>
+            <button class="nav-chapter-btn" onclick="showChapter(5)">Next: Conversation <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Chapter 6: Conversation -->
+    <div class="chapter-container" id="chapter-5">
+        <div class="chapter-header">
+            <div class="chapter-icon"><i class="fas fa-comments"></i></div>
+            <h2>Conversation</h2>
+            <p class="subtitle">The art of meaningful dialogue</p>
+        </div>
+        <div class="content-section">
+            <h3>Mastering the Art of Dialogue</h3>
+            <p>Conversation is the bridge that connects people, allowing us to share ideas, build relationships, and understand different perspectives. Skillful conversation requires both the ability to express yourself clearly and the willingness to listen attentively. When you engage others with genuine interest and respect, you create meaningful connections that enrich both your life and theirs.</p>
+            <p>Active listening is the foundation of good conversation. Give speakers your full attention, maintain eye contact, and resist the urge to interrupt or formulate your response while they're still talking. Show that you're listening through nodding, appropriate facial expressions, and thoughtful follow-up questions. People appreciate being heard and understood more than they value clever responses.</p>
+            <p>Choose topics that are inclusive and appropriate for your audience and setting. Avoid controversial subjects like politics, religion, or personal finances in casual conversation, especially with people you don't know well. Instead, focus on universal interests like travel, books, current events (non-controversial), hobbies, or shared experiences that invite participation from everyone present.</p>
+            <p>Speak clearly and at a moderate pace, enunciating your words without being overly formal or artificial. Adjust your volume to the setting—speak softly in intimate settings and project appropriately in larger groups. Avoid using excessive filler words like "um," "like," or "you know," which can distract from your message and make you appear less confident.</p>
+            <p>Know when to speak and when to remain silent. Not every thought needs to be shared, and sometimes the most courteous response is a kind silence. Avoid dominating conversations, monopolizing attention, or steering every topic back to yourself. True conversationalists create space for others to shine and contribute, making everyone feel valued and included.</p>
+        </div>
+        <div class="highlight-box">
+            <strong>The Golden Rule of Conversation:</strong> Be more interested than interesting. When you show genuine curiosity about others, you become someone people enjoy talking to and remember fondly.
+        </div>
+        <div class="chapter-nav">
+            <button class="nav-chapter-btn" onclick="showChapter(4)"><i class="fas fa-arrow-left"></i> Previous: Deportment</button>
+            <button class="nav-chapter-btn" onclick="showChapter(6)">Next: God's House <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Chapter 7: God's House -->
+    <div class="chapter-container" id="chapter-6">
+        <div class="chapter-header">
+            <div class="chapter-icon"><i class="fas fa-church"></i></div>
+            <h2>God's House</h2>
+            <p class="subtitle">Reverence and respect in places of worship</p>
+        </div>
+        <div class="content-section">
+            <h3>Showing Reverence in Sacred Spaces</h3>
+            <p>Places of worship demand special consideration and reverence, regardless of your personal faith tradition. These sacred spaces serve as sanctuaries for reflection, prayer, and community, and behaving courteously within them shows respect for both the divine and those who gather to worship. Your conduct in these spaces reflects your understanding of their significance and your regard for others' spiritual experiences.</p>
+            <p>Dress appropriately when attending religious services, choosing modest, clean, and respectful attire. Different faith traditions have varying expectations, so research or ask about dress codes in advance when visiting unfamiliar places of worship. Generally, avoid revealing clothing, loud patterns, or casual wear like shorts and flip-flops. When in doubt, it's better to be more conservative in your choices.</p>
+            <p>Arrive on time or slightly early for services, entering quietly if the service has already begun. Silence your phone completely before entering, not just setting it to vibrate. Avoid checking devices, texting, or taking photos unless explicitly permitted. Your full attention should be on the service and the spiritual experience, not on digital distractions.</p>
+            <p>Follow the customs and rituals of the faith community you're visiting, even if they differ from your own traditions. Stand, sit, or kneel when others do, participate in responses if comfortable, and observe quietly if unsure. If you're uncertain about specific practices, watch others or ask respectfully beforehand. Showing willingness to honor their traditions demonstrates deep respect.</p>
+            <p>Maintain a reverent demeanor throughout your visit, speaking in hushed tones if conversation is necessary, and avoiding disruptive behavior like chewing gum, eating, or fidgeting. Teach children appropriate behavior before bringing them to services, and be prepared to step outside if they become restless. Remember that your presence should enhance, not detract from, the worship experience of others.</p>
+        </div>
+        <div class="diagram-container">
+            <h4><i class="fas fa-pray"></i> Worship Etiquette Essentials</h4>
+            <div class="etiquette-grid">
+                <div class="etiquette-item"><h4><i class="fas fa-tshirt"></i> Dress Code</h4><p>Modest, clean, respectful attire appropriate to the tradition</p></div>
+                <div class="etiquette-item"><h4><i class="fas fa-clock"></i> Punctuality</h4><p>Arrive early, enter quietly if late</p></div>
+                <div class="etiquette-item"><h4><i class="fas fa-mobile-alt"></i> Devices</h4><p>Silence completely, no photos unless permitted</p></div>
+                <div class="etiquette-item"><h4><i class="fas fa-hands"></i> Participation</h4><p>Follow customs, observe respectfully</p></div>
+            </div>
+        </div>
+        <div class="chapter-nav">
+            <button class="nav-chapter-btn" onclick="showChapter(5)"><i class="fas fa-arrow-left"></i> Previous: Conversation</button>
+            <button class="nav-chapter-btn" onclick="showChapter(7)">Next: At School <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Chapter 8: At School -->
+    <div class="chapter-container" id="chapter-7">
+        <div class="chapter-header">
+            <div class="chapter-icon"><i class="fas fa-graduation-cap"></i></div>
+            <h2>At School</h2>
+            <p class="subtitle">Courtesy in academic environments</p>
+        </div>
+        <div class="content-section">
+            <h3>Respect in the Learning Environment</h3>
+            <p>School is a community where courtesy creates an atmosphere conducive to learning and personal growth. Showing respect to teachers, staff, and fellow students demonstrates maturity and contributes to a positive educational environment. Your behavior in academic settings not only affects your own success but also impacts the learning experience of everyone around you.</p>
+            <p>Treat teachers and school staff with respect and courtesy, addressing them appropriately and following their instructions promptly. Arrive to class on time, prepared with necessary materials, and ready to engage. Participate actively in discussions, ask thoughtful questions, and complete assignments diligently. These behaviors show that you value education and respect the effort teachers invest in your development.</p>
+            <p>Respect your classmates by listening when others speak, avoiding disruptions during lessons, and refraining from behaviors that distract from learning. This includes silencing phones, not passing notes, avoiding side conversations, and keeping electronic devices put away unless specifically permitted for academic purposes. Your consideration allows everyone to focus and benefit from instructional time.</p>
+            <p>Practice academic honesty in all your work, completing assignments independently when required and properly citing sources when using others' ideas or words. Cheating and plagiarism not only violate school policies but also demonstrate disrespect for your teachers, classmates, and your own education. Build your knowledge and skills through genuine effort and integrity.</p>
+            <p>Contribute positively to school culture by participating in activities, supporting classmates, and treating school property with care. Keep classrooms and common areas clean, report damage or problems to authorities, and represent your school with pride in the broader community. Your actions reflect not just on you but on your entire school community.</p>
+        </div>
+        <div class="highlight-box">
+            <strong>Remember:</strong> Education is a privilege. Show your appreciation through respectful behavior, active participation, and genuine effort. The courtesy you practice in school prepares you for success in all future endeavors.
+        </div>
+        <div class="chapter-nav">
+            <button class="nav-chapter-btn" onclick="showChapter(6)"><i class="fas fa-arrow-left"></i> Previous: God's House</button>
+            <button class="nav-chapter-btn" onclick="showChapter(8)">Next: Boarders <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Chapter 9: Extras For Boarders -->
+    <div class="chapter-container" id="chapter-8">
+        <div class="chapter-header">
+            <div class="chapter-icon"><i class="fas fa-building"></i></div>
+            <h2>Extras For Boarders</h2>
+            <p class="subtitle">Courtesy in shared living spaces</p>
+        </div>
+        <div class="content-section">
+            <h3>Living Harmoniously in Community</h3>
+            <p>Boarding situations, whether at school, university, or other communal living arrangements, require heightened awareness of courtesy and consideration. Sharing close quarters with others demands flexibility, respect for boundaries, and willingness to compromise. The skills you develop in these environments prepare you for collaborative living and working throughout your life.</p>
+            <p>Respect shared spaces by keeping common areas clean and organized, cleaning up after yourself immediately, and contributing fairly to maintenance tasks. This includes kitchens, bathrooms, lounges, and study areas. Never leave your belongings scattered in common spaces, and always leave areas cleaner than you found them. Your consideration makes communal living pleasant for everyone.</p>
+            <p>Honor quiet hours and respect others' need for rest and study. Keep noise levels reasonable, use headphones for music and videos, and take phone calls outside when others are sleeping or concentrating. Be mindful of your schedule and how your activities might impact roommates or neighbors. Sometimes the most courteous action is simply being aware of others' needs.</p>
+            <p>Respect privacy and personal property by never borrowing items without permission, knocking before entering rooms, and honoring requests for personal space. Keep confidential information shared by roommates private, and avoid gossiping about others in the boarding community. Trust and mutual respect are essential for harmonious shared living.</p>
+            <p>Communicate openly and respectfully about issues that arise, addressing concerns directly with those involved rather than complaining to others. Be willing to compromise and find solutions that work for everyone. Participate in community meetings, follow established rules, and contribute positively to the boarding community culture. Your attitude and actions significantly influence the living environment for all.</p>
+        </div>
+        <div class="diagram-container">
+            <h4><i class="fas fa-users"></i> Boarding Courtesy Principles</h4>
+            <div class="quick-tips">
+                <div class="tip-card"><i class="fas fa-broom"></i><h4>Cleanliness</h4><p>Clean up immediately, maintain shared spaces</p></div>
+                <div class="tip-card"><i class="fas fa-volume-mute"></i><h4>Quiet Hours</h4><p>Respect sleep and study time</p></div>
+                <div class="tip-card"><i class="fas fa-lock"></i><h4>Privacy</h4><p>Knock, ask permission, respect boundaries</p></div>
+                <div class="tip-card"><i class="fas fa-comments"></i><h4>Communication</h4><p>Address issues directly and respectfully</p></div>
+            </div>
+        </div>
+        <div class="chapter-nav">
+            <button class="nav-chapter-btn" onclick="showChapter(7)"><i class="fas fa-arrow-left"></i> Previous: At School</button>
+            <button class="nav-chapter-btn" onclick="showChapter(9)">Next: Sports <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Chapter 10: On The Sport Field -->
+    <div class="chapter-container" id="chapter-9">
+        <div class="chapter-header">
+            <div class="chapter-icon"><i class="fas fa-futbol"></i></div>
+            <h2>On The Sport Field</h2>
+            <p class="subtitle">Sportsmanship and fair play</p>
+        </div>
+        <div class="content-section">
+            <h3>The Spirit of Sportsmanship</h3>
+            <p>Sports provide a unique arena for demonstrating courtesy through sportsmanship, fair play, and respect for opponents, officials, and teammates. How you conduct yourself on the field reveals your character more clearly than almost any other situation. True athletic excellence combines skill with integrity, competitiveness with respect, and the desire to win with grace in both victory and defeat.</p>
+            <p>Respect all participants in the game, including opponents, teammates, coaches, and officials. Treat opponents with courtesy, avoiding trash talk, taunting, or unsportsmanlike behavior. Shake hands before and after competitions, acknowledge good plays by the other team, and never celebrate excessively at an opponent's expense. Remember that those you compete against today may be your colleagues tomorrow.</p>
+            <p>Accept officials' decisions gracefully, even when you disagree. Arguing, complaining, or showing dissent undermines the integrity of the game and sets a poor example. If you believe a call was incorrect, address it respectfully through proper channels rather than confronting officials angrily. Your response to adversity and perceived injustice reveals more about your character than your response to success.</p>
+            <p>Play by the rules and maintain integrity even when you think you won't get caught. Cheating, diving, or exploiting loopholes violates the spirit of fair competition and disrespects everyone involved. True champions win with honor, knowing that how you win matters as much as winning itself. Your reputation for integrity will serve you far longer than any trophy.</p>
+            <p>Handle both victory and defeat with grace. In victory, be humble, acknowledge your opponents' efforts, and avoid gloating. In defeat, congratulate the winners, accept responsibility for your performance, and use the experience as motivation to improve. Remember that sports are temporary, but the character you build through them lasts a lifetime.</p>
+        </div>
+        <div class="highlight-box">
+            <strong>The True Champion:</strong> Plays hard but fair, respects all participants, accepts decisions gracefully, wins with humility, loses with dignity, and always maintains integrity.
+        </div>
+        <div class="chapter-nav">
+            <button class="nav-chapter-btn" onclick="showChapter(8)"><i class="fas fa-arrow-left"></i> Previous: Boarders</button>
+            <button class="nav-chapter-btn" onclick="showChapter(10)">Next: Pastime <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Chapter 11: Pastime -->
+    <div class="chapter-container" id="chapter-10">
+        <div class="chapter-header">
+            <div class="chapter-icon"><i class="fas fa-gamepad"></i></div>
+            <h2>Pastime</h2>
+            <p class="subtitle">Courtesy in leisure and entertainment</p>
+        </div>
+        <div class="content-section">
+            <h3>Respectful Recreation</h3>
+            <p>How you conduct yourself during leisure activities and entertainment reflects your character and consideration for others. Whether attending concerts, theaters, movies, museums, or participating in recreational activities, courteous behavior enhances everyone's experience. Your awareness and respect in these settings demonstrate that you value both the activity and the enjoyment of those around you.</p>
+            <p>When attending performances or screenings, arrive on time, silence your phone completely, and avoid disruptive behavior. Don't talk during the performance, rustle noisy food wrappers, or use devices that create light distractions. If you must leave temporarily, do so quietly during appropriate breaks. Your consideration allows everyone to fully immerse themselves in the experience they've paid to enjoy.</p>
+            <p>Respect shared recreational facilities and equipment, whether at parks, gyms, community centers, or entertainment venues. Follow posted rules, clean up after yourself, return equipment properly, and be mindful of time limits when others are waiting. Treat facilities and equipment with care, reporting damage or problems to authorities. Your responsible use ensures these resources remain available and enjoyable for all.</p>
+            <p>When participating in group activities or games, be inclusive, encouraging, and supportive of all participants regardless of skill level. Avoid dominating activities, criticizing others' performance, or making others feel unwelcome. Remember that the primary purpose of recreation is enjoyment and social connection, not competition or showcasing superiority. Create an atmosphere where everyone feels valued and included.</p>
+            <p>Be mindful of noise levels and appropriate behavior in different recreational settings. What's acceptable at a sports bar may be inappropriate at a library or museum. Adjust your volume, language, and behavior to suit the environment and respect others' expectations. Reading social cues and adapting accordingly demonstrates emotional intelligence and social awareness.</p>
+        </div>
+        <div class="diagram-container">
+            <h4><i class="fas fa-theater-masks"></i> Entertainment Etiquette</h4>
+            <div class="etiquette-grid">
+                <div class="etiquette-item"><h4><i class="fas fa-clock"></i> Punctuality</h4><p>Arrive on time, settle in before start</p></div>
+                <div class="etiquette-item"><h4><i class="fas fa-mobile-alt"></i> Devices</h4><p>Silence completely, no screens during performance</p></div>
+                <div class="etiquette-item"><h4><i class="fas fa-volume-mute"></i> Noise</h4><p>No talking, quiet movement, minimal rustling</p></div>
+                <div class="etiquette-item"><h4><i class="fas fa-trash"></i> Cleanliness</h4><p>Dispose of trash, leave seat area clean</p></div>
+            </div>
+        </div>
+        <div class="chapter-nav">
+            <button class="nav-chapter-btn" onclick="showChapter(9)"><i class="fas fa-arrow-left"></i> Previous: Sports</button>
+            <button class="nav-chapter-btn" onclick="showChapter(11)">Next: In Public <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Chapter 12: In Public -->
+    <div class="chapter-container" id="chapter-11">
+        <div class="chapter-header">
+            <div class="chapter-icon"><i class="fas fa-city"></i></div>
+            <h2>In Public</h2>
+            <p class="subtitle">Courtesy in shared spaces</p>
+        </div>
+        <div class="content-section">
+            <h3>Being a Considerate Citizen</h3>
+            <p>Public spaces belong to everyone, and courteous behavior in these environments demonstrates respect for the community and consideration for fellow citizens. How you conduct yourself in public—whether on streets, in stores, at restaurants, or using public transportation—contributes to the overall quality of life in your community. Small acts of courtesy create a more pleasant environment for all.</p>
+            <p>Practice good sidewalk and public space etiquette by keeping to the right, not blocking pathways, and being aware of your surroundings. Don't walk in large groups that obstruct others, stop suddenly in the middle of walkways, or occupy excessive space with belongings. Yield to those with mobility challenges, parents with strollers, and anyone who needs extra space or time to navigate.</p>
+            <p>Maintain appropriate noise levels in public spaces, keeping conversations at reasonable volumes and silencing phones in quiet areas like libraries, museums, or public transit. Avoid loud phone conversations, playing music without headphones, or creating disturbances that impose on others' peace. Remember that public spaces are shared, and your right to enjoy them doesn't supersede others' right to tranquility.</p>
+            <p>Respect public property and facilities, using them as intended and leaving them clean for the next person. Don't vandalize, litter, or misuse public resources. Report problems or damage to authorities, and when possible, pick up litter even if it's not yours. Taking pride in your community's public spaces encourages others to do the same.</p>
+            <p>Show courtesy to service workers in public settings, treating cashiers, servers, custodians, and other staff with respect and kindness. Say please and thank you, be patient during busy times, and address issues calmly and respectfully. These workers deserve dignity and appreciation for their service, and your courtesy can make a difficult day brighter.</p>
+        </div>
+        <div class="highlight-box">
+            <strong>Public Courtesy:</strong> The mark of a civilized society is how its members treat each other in public spaces. Your consideration for strangers reflects your character and contributes to community wellbeing.
+        </div>
+        <div class="chapter-nav">
+            <button class="nav-chapter-btn" onclick="showChapter(10)"><i class="fas fa-arrow-left"></i> Previous: Pastime</button>
+            <button class="nav-chapter-btn" onclick="showChapter(12)">Next: Traveling <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Chapter 13: Traveling -->
+    <div class="chapter-container" id="chapter-12">
+        <div class="chapter-header">
+            <div class="chapter-icon"><i class="fas fa-plane"></i></div>
+            <h2>Traveling</h2>
+            <p class="subtitle">Courtesy on the go</p>
+        </div>
+        <div class="content-section">
+            <h3>Being a Gracious Traveler</h3>
+            <p>Travel presents unique opportunities and challenges for practicing courtesy, whether you're commuting daily, taking a road trip, or flying across continents. Confined spaces, delays, and close proximity to strangers test our patience and consideration. How you handle these situations reveals your character and impacts the experience of fellow travelers. Grace under pressure and consideration for others make journeys more pleasant for everyone.</p>
+            <p>Respect personal space in all forms of travel, whether on planes, trains, buses, or in cars. Keep your belongings within your designated area, avoid encroaching on others' space, and be mindful of armrests, legroom, and seat reclining. On planes, recline seats slowly and check behind you first. In cars, respect others' comfort with temperature, music, and stops. Small courtesies prevent conflicts in tight quarters.</p>
+            <p>Maintain cleanliness and hygiene while traveling, disposing of trash properly, keeping your area tidy, and being considerate about food odors in confined spaces. Use restrooms responsibly, leaving them clean for the next person. Practice good personal hygiene, especially on long journeys, and be mindful that strong scents can be overwhelming in enclosed spaces.</p>
+            <p>Be patient and courteous with travel staff, recognizing that delays, cancellations, and inconveniences are rarely their fault. Treat airline personnel, train conductors, bus drivers, and hotel staff with respect, even when frustrated. Remember that kindness and patience yield better results than anger and demands. These workers are doing their best under challenging circumstances.</p>
+            <p>When traveling to different cultures or countries, research and respect local customs, laws, and etiquette. Dress appropriately, learn basic phrases in the local language, and observe how locals behave in various situations. Be a respectful guest, recognizing that you're visiting someone else's home. Cultural sensitivity and adaptability demonstrate worldly courtesy and open doors to richer travel experiences.</p>
+        </div>
+        <div class="diagram-container">
+            <h4><i class="fas fa-suitcase-rolling"></i> Travel Courtesy Essentials</h4>
+            <div class="quick-tips">
+                <div class="tip-card"><i class="fas fa-ruler-horizontal"></i><h4>Personal Space</h4><p>Respect boundaries, keep belongings contained</p></div>
+                <div class="tip-card"><i class="fas fa-trash-alt"></i><h4>Cleanliness</h4><p>Dispose of trash, leave areas tidy</p></div>
+                <div class="tip-card"><i class="fas fa-smile"></i><h4>Patience</h4><p>Stay calm during delays, be kind to staff</p></div>
+                <div class="tip-card"><i class="fas fa-globe"></i><h4>Cultural Respect</h4><p>Honor local customs and traditions</p></div>
+            </div>
+        </div>
+        <div class="chapter-nav">
+            <button class="nav-chapter-btn" onclick="showChapter(11)"><i class="fas fa-arrow-left"></i> Previous: In Public</button>
+            <button class="nav-chapter-btn" onclick="showChapter(13)">Next: Visits <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Chapter 14: Visits To Friends -->
+    <div class="chapter-container" id="chapter-13">
+        <div class="chapter-header">
+            <div class="chapter-icon"><i class="fas fa-handshake"></i></div>
+            <h2>Visits To Friends</h2>
+            <p class="subtitle">The art of being a good guest</p>
+        </div>
+        <div class="content-section">
+            <h3>Gracious Guest Etiquette</h3>
+            <p>Being invited into someone's home is a privilege that comes with responsibilities. Good guests make visits enjoyable for their hosts, strengthening friendships and creating positive memories. Whether staying for dinner or an extended visit, your consideration and respect for your hosts' home, rules, and routines demonstrate appreciation for their hospitality and care for the relationship.</p>
+            <p>Respond to invitations promptly and clearly, letting hosts know whether you can attend as soon as possible. Once you've accepted, honor your commitment unless absolutely necessary to cancel, and if you must cancel, do so with ample notice and a sincere apology. Never arrive unannounced or bring uninvited guests, pets, or children without explicit permission. Respect your hosts' planning and preparations.</p>
+            <p>Arrive on time for visits, neither too early (which can catch hosts unprepared) nor too late (which shows disregard for their schedule). For overnight stays, clarify arrival and departure times in advance, and stick to them. Bring a thoughtful host gift, whether flowers, wine, dessert, or something personalized to your hosts' interests. The gesture shows appreciation for their hospitality.</p>
+            <p>Respect your hosts' home by following their rules and routines, keeping your space tidy, and offering to help with meals or cleanup. Ask before using items, respect quiet hours, and be mindful of water and electricity usage during longer stays. Make your bed, keep belongings organized, and leave your room as you found it. Treat their home with more care than your own.</p>
+            <p>Express gratitude sincerely and specifically, thanking hosts not just for the invitation but for specific efforts they made. Follow up with a thank-you note or message within a few days of your visit, mentioning something special you enjoyed. Reciprocate hospitality when possible, inviting your hosts to your home or treating them to a meal. True friendship involves mutual care and appreciation.</p>
+        </div>
+        <div class="highlight-box">
+            <strong>The Perfect Guest:</strong> Arrives on time, brings a gift, respects the home, offers help, expresses gratitude, and leaves the space better than they found it.
+        </div>
+        <div class="chapter-nav">
+            <button class="nav-chapter-btn" onclick="showChapter(12)"><i class="fas fa-arrow-left"></i> Previous: Traveling</button>
+            <button class="nav-chapter-btn" onclick="showChapter(14)">Next: Letters <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Chapter 15: Letters -->
+    <div class="chapter-container" id="chapter-14">
+        <div class="chapter-header">
+            <div class="chapter-icon"><i class="fas fa-envelope-open-text"></i></div>
+            <h2>Letters</h2>
+            <p class="subtitle">The art of written correspondence</p>
+        </div>
+        <div class="content-section">
+            <h3>Courteous Written Communication</h3>
+            <p>Written correspondence, whether formal letters, emails, or messages, requires special attention to courtesy as tone and intent can be easily misunderstood without facial expressions and vocal inflection. Thoughtful, well-crafted written communication demonstrates respect for the recipient and care in conveying your message. In our digital age, the principles of courteous correspondence remain as important as ever.</p>
+            <p>Begin all correspondence with appropriate greetings and end with proper closings. Use the recipient's name, choose salutations suited to your relationship and the formality of the situation, and sign your name clearly. In formal letters, use "Dear [Name]" and close with "Sincerely" or "Respectfully." In emails, maintain professionalism while adapting to the context. These formalities show respect and establish the appropriate tone.</p>
+            <p>Write clearly and concisely, organizing your thoughts logically and proofreading carefully before sending. Use proper grammar, spelling, and punctuation, as errors can distract from your message and suggest carelessness. In emails, use descriptive subject lines, keep messages focused, and avoid unnecessary length. Respect the recipient's time by making your communication easy to read and respond to.</p>
+            <p>Respond to correspondence in a timely manner, acknowledging receipt even if you can't provide a full response immediately. When delays are unavoidable, explain briefly and provide a timeframe for your complete response. Ignoring messages or taking excessive time to reply suggests the sender and their concerns are unimportant to you. Prompt responses demonstrate respect and reliability.</p>
+            <p>Maintain a respectful, positive tone in all written communication, avoiding sarcasm, harsh language, or emotional outbursts that might offend or hurt the recipient. Remember that written words lack vocal nuance and can seem harsher than intended. When addressing difficult topics, choose words carefully, focus on solutions rather than blame, and consider whether a phone call or face-to-face conversation might be more appropriate.</p>
+        </div>
+        <div class="diagram-container">
+            <h4><i class="fas fa-pen-fancy"></i> Letter Writing Essentials</h4>
+            <div class="etiquette-grid">
+                <div class="etiquette-item"><h4><i class="fas fa-heading"></i> Format</h4><p>Proper greeting, clear body, appropriate closing</p></div>
+                <div class="etiquette-item"><h4><i class="fas fa-spell-check"></i> Quality</h4><p>Correct grammar, spelling, and punctuation</p></div>
+                <div class="etiquette-item"><h4><i class="fas fa-clock"></i> Timeliness</h4><p>Respond promptly, acknowledge receipt</p></div>
+                <div class="etiquette-item"><h4><i class="fas fa-smile"></i> Tone</h4><p>Respectful, positive, considerate</p></div>
+            </div>
+        </div>
+        <div class="chapter-nav">
+            <button class="nav-chapter-btn" onclick="showChapter(13)"><i class="fas fa-arrow-left"></i> Previous: Visits</button>
+            <button class="nav-chapter-btn" onclick="showChapter(15)">Next: Civic Spirit <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Chapter 16: Civic Spirit -->
+    <div class="chapter-container" id="chapter-15">
+        <div class="chapter-header">
+            <div class="chapter-icon"><i class="fas fa-flag-usa"></i></div>
+            <h2>Civic Spirit</h2>
+            <p class="subtitle">Courtesy to community and country</p>
+        </div>
+        <div class="content-section">
+            <h3>Being a Responsible Citizen</h3>
+            <p>Civic spirit encompasses our responsibilities and courtesies toward our communities, fellow citizens, and country. It involves active participation in civic life, respect for laws and institutions, and contribution to the common good. Demonstrating civic courtesy means recognizing that we're part of something larger than ourselves and that our actions impact the wellbeing of our entire community.</p>
+            <p>Obey laws and regulations, not just to avoid punishment but because they exist to protect and benefit everyone. Follow traffic laws, pay taxes honestly, respect public property, and adhere to community standards. When everyone follows agreed-upon rules, society functions smoothly and fairly. Your compliance demonstrates respect for your fellow citizens and the social contract we all share.</p>
+            <p>Participate actively in your community through voting, volunteering, attending public meetings, and staying informed about local issues. Engage respectfully in civic discourse, listening to different viewpoints and expressing your own opinions thoughtfully and courteously. A healthy democracy depends on informed, engaged citizens who care about their communities and work together for positive change.</p>
+            <p>Show respect for public servants, military personnel, and those who serve the community, recognizing their sacrifices and contributions. Treat police officers, firefighters, teachers, and other public workers with courtesy and appreciation. Support them through your actions and words, understanding that they work to maintain safety, order, and quality of life for all.</p>
+            <p>Practice environmental stewardship as an act of civic courtesy, protecting natural resources, reducing waste, and considering the impact of your actions on future generations. Participate in recycling programs, conserve water and energy, and support sustainable practices. Caring for our shared environment demonstrates respect for fellow citizens and those who will inherit the world after us.</p>
+        </div>
+        <div class="highlight-box">
+            <strong>Civic Responsibility:</strong> True citizenship involves more than enjoying rights—it requires fulfilling responsibilities, contributing to community wellbeing, and treating fellow citizens with respect and consideration.
+        </div>
+        <div class="chapter-nav">
+            <button class="nav-chapter-btn" onclick="showChapter(14)"><i class="fas fa-arrow-left"></i> Previous: Letters</button>
+            <button class="nav-chapter-btn" onclick="showChapter(16)">Next: Before We Go <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Chapter 17: Before We Go -->
+    <div class="chapter-container" id="chapter-16">
+        <div class="chapter-header">
+            <div class="chapter-icon"><i class="fas fa-road"></i></div>
+            <h2>Before We Go</h2>
+            <p class="subtitle">Carrying courtesy forward</p>
+        </div>
+        <div class="content-section">
+            <h3>Your Journey Forward</h3>
+            <p>As we conclude this exploration of courtesy, remember that etiquette is not about rigid rules or making others feel inferior. It's about showing respect, creating positive interactions, and making the world a kinder, more considerate place. The principles you've learned are tools for building stronger relationships, creating better communities, and becoming the best version of yourself.</p>
+            <p>Courtesy is a lifelong practice, not a destination. You'll encounter new situations, cultures, and challenges that require adaptation and growth. Stay humble, remain open to learning, and don't be too hard on yourself when you make mistakes. What matters most is your intention to treat others with kindness and respect, and your willingness to grow and improve.</p>
+            <p>Remember that true courtesy comes from the heart, not from memorizing rules. When you genuinely care about others' comfort and wellbeing, courteous behavior flows naturally. Focus on developing empathy, consideration, and respect as character traits, and the specific behaviors will follow. Let kindness be your guide in every situation.</p>
+            <p>Be a positive influence by modeling courteous behavior for others, especially younger generations. Children learn by watching adults, and your example can inspire them to value respect and consideration. In a world that often seems rushed and self-centered, your commitment to courtesy makes a difference and creates ripples of positivity that extend far beyond what you can see.</p>
+            <p>Carry these lessons forward with confidence and grace. Use them to build meaningful relationships, contribute to your communities, and navigate life's challenges with dignity. Remember that courtesy is not weakness—it's strength tempered with kindness, confidence balanced with humility, and self-respect extended to others. Go forth and make the world more beautiful through your thoughtful, considerate presence.</p>
+        </div>
+        <div class="quote-box">
+            "Courtesy is the oil that reduces the friction of life, the balm that soothes the wounds of daily interaction, and the light that brightens the path for all who travel with us."
+        </div>
+        <div class="diagram-container">
+            <h4><i class="fas fa-seedling"></i> Growing in Courtesy</h4>
+            <div class="quick-tips">
+                <div class="tip-card"><i class="fas fa-heart"></i><h4>Practice Daily</h4><p>Make courtesy a habit, not an exception</p></div>
+                <div class="tip-card"><i class="fas fa-users"></i><h4>Inspire Others</h4><p>Lead by example, share kindness freely</p></div>
+                <div class="tip-card"><i class="fas fa-brain"></i><h4>Stay Open</h4><p>Keep learning, growing, and adapting</p></div>
+                <div class="tip-card"><i class="fas fa-gift"></i><h4>Give Freely</h4><p>Courtesy costs nothing but means everything</p></div>
+            </div>
+        </div>
+        <div class="chapter-nav">
+            <button class="nav-chapter-btn" onclick="showChapter(15)"><i class="fas fa-arrow-left"></i> Previous: Civic Spirit</button>
+            <button class="nav-chapter-btn" onclick="showChapter(0)">Back to Start <i class="fas fa-redo"></i></button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p><strong>Created by Joel A Asamoah</strong> <small>(Joelkoder)</small></p>
+        <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/233534381128" target="_blank">+233 53 438 1128</a></p>
+        <p style="margin-top: 0.8rem; font-size: 0.9rem; opacity: 0.8;">&copy; 2009 jTECH • Code Your Future</p>
+    </footer>
+
+    <script>
+        // ========== DARK MODE TOGGLE ==========
+        function toggleTheme() {
+            const html = document.documentElement;
+            const toggle = document.getElementById('themeToggle');
+            const icon = toggle.querySelector('i');
+            
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.removeAttribute('data-theme');
+                toggle.classList.remove('moon-mode');
+                toggle.classList.add('sun-mode');
+                icon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                toggle.classList.remove('sun-mode');
+                toggle.classList.add('moon-mode');
+                icon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Load saved theme on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            const toggle = document.getElementById('themeToggle');
+            const icon = toggle.querySelector('i');
+            
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                toggle.classList.remove('sun-mode');
+                toggle.classList.add('moon-mode');
+                icon.className = 'fas fa-sun';
+            }
+        });
+
+        // ========== CHAPTER NAVIGATION ==========
+        function showChapter(index) {
+            document.querySelectorAll('.chapter-container').forEach(chapter => {
+                chapter.classList.remove('active');
+            });
+            document.getElementById(`chapter-${index}`).classList.add('active');
+            
+            document.querySelectorAll('.nav-btn').forEach((btn, i) => {
+                btn.classList.toggle('active', i === index);
+            });
+            
+            document.getElementById('chapterDropdown').value = index;
+            
+            document.querySelectorAll('.toc-link').forEach((link, i) => {
+                link.classList.toggle('active', i === index);
+            });
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            document.getElementById('tocOverlay').classList.remove('active');
+        }
+
+        function navigateToChapter(index) {
+            if (index !== "") {
+                showChapter(parseInt(index));
+            }
+        }
+
+        // ========== TABLE OF CONTENTS ==========
+        function toggleTOC() {
+            const overlay = document.getElementById('tocOverlay');
+            overlay.classList.toggle('active');
+            if (overlay.classList.contains('active')) {
+                setTimeout(() => document.getElementById('tocSearch').focus(), 300);
+            }
+        }
+
+        function closeTOC(event) {
+            if (event.target.id === 'tocOverlay') {
+                toggleTOC();
+            }
+        }
+
+        function filterTOC() {
+            const searchTerm = document.getElementById('tocSearch').value.toLowerCase();
+            const items = document.querySelectorAll('.toc-item');
+            let visibleCount = 0;
+            
+            items.forEach(item => {
+                const title = item.querySelector('.chapter-title').textContent.toLowerCase();
+                const icon = item.querySelector('.chapter-icon').className;
+                
+                if (title.includes(searchTerm) || icon.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            document.getElementById('tocNoResults').classList.toggle('active', visibleCount === 0);
+        }
+
+        // ========== PROGRESS BAR ==========
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progressFill").style.width = scrolled + "%";
+        };
+
+        // ========== KEYBOARD NAVIGATION ==========
+        document.addEventListener('keydown', function(e) {
+            if (document.getElementById('tocOverlay').classList.contains('active')) return;
+            
+            const currentChapter = document.querySelector('.chapter-container.active');
+            const currentIndex = parseInt(currentChapter.id.replace('chapter-', ''));
+            
+            if (e.key === 'ArrowRight' && currentIndex < 16) {
+                showChapter(currentIndex + 1);
+            } else if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                showChapter(currentIndex - 1);
+            }
+        });
+
+        // Initialize active states
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.toc-link').classList.add('active');
+        });
+    </script>
+
+    <script>
+        // Auto-detect OS preference on first visit
+        if (!localStorage.getItem('theme')) {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (prefersDark) toggleTheme();
+        }
+    </script>
+</body>
+</html>
+

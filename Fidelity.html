@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fidelity Prime | Secure Global Wealth Management</title>
+    <meta name="description" content="Professional investment solutions with global reach. Secure deposits, high yields, and trusted management.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- EMBEDDED CSS - COMPLETE STYLESHEET -->
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary: #0a2540;
+            --accent: #00d4ff;
+            --success: #00c853;
+            --warning: #ffb300;
+            --danger: #ff4b4b;
+            --light: #f6f9fc;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--primary); }
+        a { text-decoration: none; transition: var(--transition); }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* --- UTILITIES --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section-padding { padding: 100px 0; }
+        .text-center { text-align: center; }
+        .flex { display: flex; align-items: center; }
+        .grid { display: grid; gap: 30px; }
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+        .btn-primary { background: var(--primary); color: var(--white); box-shadow: 0 4px 15px rgba(10, 37, 64, 0.3); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(10, 37, 64, 0.4); background: #163555; }
+        .btn-outline { border: 2px solid var(--primary); color: var(--primary); background: transparent; }
+        .btn-outline:hover { background: var(--primary); color: var(--white); }
+
+        /* --- HEADER --- */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); display: flex; align-items: center; gap: 10px; }
+        .logo i { color: var(--accent); }
+        
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { color: var(--dark); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { color: var(--accent); }
+        
+        .auth-group { display: flex; gap: 15px; align-items: center; }
+        .theme-toggle { cursor: pointer; font-size: 1.2rem; color: var(--dark); background: none; border: none; }
+        .mobile-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding-top: 160px;
+            padding-bottom: 100px;
+            background: linear-gradient(135deg, #f6f9fc 0%, #eef2f6 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: -100px; right: -100px;
+            width: 500px; height: 500px; background: rgba(0, 212, 255, 0.05);
+            border-radius: 50%; z-index: 0;
+        }
+        .hero-content { position: relative; z-index: 1; max-width: 700px; }
+        .badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(10, 37, 64, 0.05); color: var(--primary);
+            padding: 8px 16px; border-radius: 30px; font-size: 0.85rem; font-weight: 600;
+            margin-bottom: 25px; border: 1px solid rgba(10, 37, 64, 0.1);
+        }
+        .hero h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; }
+        .hero p { font-size: 1.15rem; color: var(--gray); margin-bottom: 35px; }
+        .trust-badges { margin-top: 40px; display: flex; gap: 20px; flex-wrap: wrap; }
+        .trust-item { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--gray); }
+        .trust-item i { color: var(--success); }
+
+        /* --- STATS BAR --- */
+        .stats-bar {
+            background: var(--primary); color: white;
+            padding: 40px 0; margin-top: -50px;
+            position: relative; z-index: 2; border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center; }
+        .stat-item h3 { font-size: 2.5rem; color: var(--accent); font-family: 'Inter', sans-serif; margin-bottom: 5px; }
+        .stat-item p { font-size: 0.9rem; opacity: 0.8; }
+
+        /* --- LOCATIONS --- */
+        .locations-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .location-card {
+            background: var(--white); padding: 40px; border-radius: var(--radius);
+            box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,0.05);
+            transition: var(--transition); text-align: center;
+        }
+        .location-card:hover { transform: translateY(-10px); }
+        .location-icon {
+            width: 70px; height: 70px; background: rgba(10, 37, 64, 0.05);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px; color: var(--primary); font-size: 1.8rem;
+        }
+
+        /* --- SECURITY & PRIVACY --- */
+        .security-section { background: var(--white); }
+        .security-grid { grid-template-columns: 1fr 1fr; align-items: center; }
+        .security-content h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .feature-list { margin: 30px 0; }
+        .feature-item { display: flex; gap: 15px; margin-bottom: 20px; }
+        .feature-icon {
+            width: 40px; height: 40px; background: rgba(0, 200, 83, 0.1);
+            color: var(--success); border-radius: 8px;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .security-img {
+            border-radius: var(--radius); box-shadow: var(--shadow);
+            width: 100%; object-fit: cover;
+        }
+
+        /* --- TEAM --- */
+        .team-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        .team-card {
+            background: var(--white); border-radius: var(--radius);
+            overflow: hidden; box-shadow: var(--shadow); text-align: center;
+        }
+        .team-img-wrapper { height: 280px; overflow: hidden; background: #eee; }
+        .team-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .team-card:hover img { transform: scale(1.05); }
+        .team-info { padding: 25px; }
+        .team-role { color: var(--accent); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+
+        /* --- TESTIMONIALS (REVIEWS) --- */
+        .reviews-section { background: #f8fafc; }
+        .reviews-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+        .review-card {
+            background: var(--white); padding: 35px; border-radius: var(--radius);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04); position: relative;
+        }
+        .stars { color: var(--warning); margin-bottom: 15px; font-size: 0.9rem; }
+        .review-text { font-style: italic; color: var(--gray); margin-bottom: 25px; font-size: 1.05rem; }
+        .client-profile { display: flex; align-items: center; gap: 15px; }
+        .client-avatar { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
+        .client-details h4 { font-size: 1rem; font-family: 'Inter', sans-serif; margin-bottom: 2px; }
+        .client-details span { font-size: 0.85rem; color: var(--gray); display: flex; align-items: center; gap: 5px; }
+        .verified-badge { color: var(--success); font-size: 0.8rem; }
+
+        /* --- PLANS --- */
+        .plans-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items: center; }
+        .plan-card {
+            background: var(--white); padding: 40px; border-radius: var(--radius);
+            border: 1px solid #e2e8f0; text-align: center; transition: var(--transition);
+            position: relative;
+        }
+        .plan-card.featured {
+            border: 2px solid var(--primary); transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(10, 37, 64, 0.15); z-index: 2;
+        }
+        .popular-tag {
+            position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+            background: var(--primary); color: white; padding: 5px 20px;
+            border-radius: 20px; font-size: 0.8rem; font-weight: 600;
+        }
+        .price { font-size: 3rem; font-weight: 700; color: var(--primary); margin: 20px 0; font-family: 'Inter', sans-serif; }
+        .price span { font-size: 1rem; color: var(--gray); font-weight: 400; }
+        .plan-features { text-align: left; margin: 30px 0; }
+        .plan-features li { margin-bottom: 15px; color: var(--dark); display: flex; gap: 10px; }
+        .plan-features i { color: var(--success); }
+
+        /* --- FOOTER --- */
+        footer { background: var(--primary); color: white; padding: 80px 0 30px; }
+        .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; margin-bottom: 60px; }
+        .footer-logo { font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; display: block; color: white; }
+        .footer-desc { color: rgba(255,255,255,0.7); margin-bottom: 25px; max-width: 300px; }
+        .footer-col h4 { color: white; font-family: 'Inter', sans-serif; font-size: 1.1rem; margin-bottom: 25px; }
+        .footer-links li { margin-bottom: 15px; }
+        .footer-links a { color: rgba(255,255,255,0.7); font-size: 0.95rem; }
+        .footer-links a:hover { color: var(--accent); padding-left: 5px; }
+        .legal-bar {
+            border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px;
+            display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+            color: rgba(255,255,255,0.5); font-size: 0.85rem;
+        }
+
+        /* --- MODALS --- */
+        .modal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(10, 37, 64, 0.8); backdrop-filter: blur(5px);
+            z-index: 2000; justify-content: center; align-items: center;
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .modal.active { display: flex; opacity: 1; }
+        .modal-content {
+            background: var(--white); padding: 40px; border-radius: var(--radius);
+            width: 90%; max-width: 550px; position: relative;
+            transform: translateY(20px); transition: transform 0.3s ease;
+            max-height: 90vh; overflow-y: auto;
+        }
+        .modal.active .modal-content { transform: translateY(0); }
+        .close-modal {
+            position: absolute; top: 20px; right: 20px; font-size: 1.5rem;
+            cursor: pointer; color: var(--gray); transition: 0.2s;
+        }
+        .close-modal:hover { color: var(--danger); }
+        
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; }
+        .form-control {
+            width: 100%; padding: 12px 15px; border: 1px solid #ddd;
+            border-radius: 8px; font-family: inherit; transition: 0.2s;
+        }
+        .form-control:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(10, 37, 64, 0.1); }
+        
+        .wallet-tabs { display: flex; border-bottom: 1px solid #eee; margin-bottom: 25px; }
+        .tab-btn {
+            flex: 1; padding: 15px; text-align: center; cursor: pointer;
+            font-weight: 600; color: var(--gray); border-bottom: 2px solid transparent;
+            transition: var(--transition);
+        }
+        .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); font-weight: 700; }
+        .tab-btn:hover { color: var(--primary); }
+
+        /* --- WHATSAPP FLOAT --- */
+        .whatsapp-float {
+            position: fixed; bottom: 30px; right: 30px;
+            background: #25d366; color: white; width: 60px; height: 60px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 30px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 999; transition: var(--transition);
+        }
+        .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6); }
+
+        /* === NEW STYLES FOR PAYMENT FLOW === */
+        
+        /* WhatsApp Notification Banner */
+        .whatsapp-notice {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+            animation: slideIn 0.3s ease;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .whatsapp-notice i { font-size: 1.6rem; margin-top: 3px; flex-shrink: 0; }
+        .whatsapp-notice strong { display: block; margin-bottom: 4px; font-size: 1rem; }
+        .whatsapp-notice p { margin: 0; font-size: 0.92rem; opacity: 0.95; line-height: 1.4; }
+
+        /* Fee Warning Banner */
+        .fee-notice {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+            animation: slideIn 0.3s ease;
+        }
+        .fee-notice i { font-size: 1.4rem; margin-top: 4px; flex-shrink: 0; }
+        .fee-notice strong { display: block; margin-bottom: 4px; font-size: 1rem; }
+        .fee-notice p { margin: 0; font-size: 0.92rem; opacity: 0.95; line-height: 1.4; }
+
+        /* Payment Details Card */
+        .payment-details-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            transition: var(--transition);
+        }
+        .payment-details-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 15px rgba(10, 37, 64, 0.08);
+        }
+        .payment-details-card h4 {
+            margin: 0 0 15px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+        }
+        .payment-details-card > div {
+            display: grid;
+            gap: 12px;
+        }
+        .payment-details-card > div > div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            transition: var(--transition);
+        }
+        .payment-details-card > div > div:hover {
+            transform: translateX(3px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .payment-details-card > div > div:nth-child(2) { border-left-color: var(--success); }
+        .payment-details-card > div > div:nth-child(3) { border-left-color: #8b5cf6; }
+        .payment-details-card span { color: var(--gray); font-size: 0.9rem; }
+        .payment-details-card strong { font-size: 1.05rem; color: var(--dark); }
+        .payment-details-card > p {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin: 15px 0 0;
+            padding-top: 15px;
+            border-top: 1px dashed #cbd5e1;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Fee Calculator */
+        #feeCalculator {
+            background: #fffbeb;
+            border: 2px solid #fcd34d;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        #feeCalculator h4 {
+            margin: 0 0 15px;
+            color: #92400e;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+        }
+        #feeCalculator > div {
+            display: grid;
+            gap: 10px;
+        }
+        #feeCalculator > div > div {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #fde68a;
+        }
+        #feeCalculator > div > div:last-of-type {
+            border-bottom: none;
+            padding: 12px;
+            background: #fef3c7;
+            border-radius: 8px;
+            margin-top: 5px;
+            font-size: 1.05rem;
+        }
+        #feeCalculator span { color: #92400e; }
+        #feeCalculator strong { color: #92400e; }
+        #feeCalculator #displayFeeAmount,
+        #feeCalculator #displayTotalFee { color: #dc2626; font-weight: 700; }
+        #feeCalculator > p {
+            font-size: 0.8rem;
+            color: #92400e;
+            margin: 15px 0 0;
+            padding-top: 15px;
+            border-top: 1px dashed #fcd34d;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* WhatsApp Button Styles */
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%) !important;
+            border-color: #25D366 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 10px !important;
+            font-weight: 600 !important;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3) !important;
+        }
+        .btn-whatsapp:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45) !important;
+        }
+        .btn-whatsapp i { font-size: 1.1rem; }
+
+        .btn-withdraw {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+            border-color: #f59e0b !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 10px !important;
+            font-weight: 600 !important;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3) !important;
+        }
+        .btn-withdraw:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.45) !important;
+        }
+
+        /* Section Visibility */
+        #withdrawSection { display: none; animation: fadeIn 0.3s ease; }
+
+        /* Dark Mode Overrides - NEW ELEMENTS */
+        body.dark-mode .whatsapp-notice {
+            background: linear-gradient(135deg, #1fa851 0%, #0d7a55 100%);
+            box-shadow: 0 4px 12px rgba(31, 168, 81, 0.3);
+        }
+        body.dark-mode .fee-notice {
+            background: linear-gradient(135deg, #b45309 0%, #92400e 100%);
+            box-shadow: 0 4px 12px rgba(180, 83, 9, 0.3);
+        }
+        body.dark-mode .payment-details-card {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        body.dark-mode .payment-details-card > div > div {
+            background: #334155;
+            border-left-color: var(--accent);
+        }
+        body.dark-mode .payment-details-card > div > div:nth-child(2) { border-left-color: var(--success); }
+        body.dark-mode .payment-details-card > div > div:nth-child(3) { border-left-color: #a78bfa; }
+        body.dark-mode .payment-details-card span { color: #94a3b8; }
+        body.dark-mode .payment-details-card strong { color: #f1f5f9; }
+        body.dark-mode .payment-details-card > p {
+            color: #94a3b8;
+            border-top-color: #475569;
+        }
+        body.dark-mode #feeCalculator {
+            background: #451a03;
+            border-color: #92400e;
+        }
+        body.dark-mode #feeCalculator h4,
+        body.dark-mode #feeCalculator span { color: #fcd34d; }
+        body.dark-mode #feeCalculator > div > div { border-bottom-color: #78350f; }
+        body.dark-mode #feeCalculator > div > div:last-of-type {
+            background: #78350f;
+        }
+        body.dark-mode #feeCalculator > p {
+            color: #fcd34d;
+            border-top-color: #92400e;
+        }
+        body.dark-mode .tab-btn { color: #94a3b8; }
+        body.dark-mode .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+        body.dark-mode .tab-btn:hover { color: var(--accent); }
+
+        /* === RESPONSIVE STYLES === */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 2.8rem; }
+            .security-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .plan-card.featured { transform: scale(1); }
+            .modal-content { max-width: 95%; padding: 30px 25px; }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed; top: 70px; right: -100%;
+                width: 85%; height: calc(100vh - 70px);
+                background: white; flex-direction: column;
+                padding: 30px 25px; box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                transition: 0.3s;
+            }
+            body.dark-mode .nav-links { background: #1e293b; }
+            .nav-links.active { right: 0; }
+            .mobile-toggle { display: block; }
+            .auth-group { display: none; }
+            .stats-bar { margin-top: 20px; }
+            .hero { padding-top: 120px; text-align: center; }
+            .hero::before { display: none; }
+            .trust-badges { justify-content: center; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .wallet-tabs { flex-wrap: wrap; }
+            .tab-btn { padding: 12px; font-size: 0.9rem; }
+            .whatsapp-notice, .fee-notice { flex-direction: column; text-align: center; }
+            .whatsapp-notice i, .fee-notice i { margin: 0 auto 10px; }
+            .payment-details-card > div > div { flex-direction: column; align-items: flex-start; gap: 5px; }
+            .payment-details-card > div > div strong { font-size: 1.1rem; }
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2.3rem; }
+            .hero p { font-size: 1rem; }
+            .btn { padding: 12px 24px; font-size: 0.95rem; }
+            .plan-card { padding: 30px 25px; }
+            .price { font-size: 2.5rem; }
+            .modal-content { padding: 25px 20px; width: 95%; }
+            .close-modal { top: 15px; right: 15px; font-size: 1.3rem; }
+        }
+
+        /* === ACCESSIBILITY & ANIMATIONS === */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        .sr-only {
+            position: absolute; width: 1px; height: 1px;
+            padding: 0; margin: -1px; overflow: hidden;
+            clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+        }
+        .form-control:disabled {
+            background: #f1f5f9;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+        body.dark-mode .form-control:disabled {
+            background: #334155;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <i class="fas fa-layer-group"></i> Fidelity<span style="font-weight:300">Prime</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Global</a></li>
+                <li><a href="#security">Security</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#plans">Plans</a></li>
+
+ <li><a href="index.html">Back to Portfolio</a></li>
+            </ul>
+            <div class="auth-group">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="btn btn-outline" style="padding: 8px 20px; font-size:0.9rem;" onclick="openAuth('login')">Log In</button>
+                <button class="btn btn-primary" style="padding: 8px 20px; font-size:0.9rem;" onclick="openAuth('signup')">Sign Up</button>
+                <button class="btn btn-primary" id="logoutBtn" style="display:none; padding: 8px 20px; font-size:0.9rem; background:var(--danger);" onclick="logout()">Log Out</button>
+            </div>
+            <div class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge">
+                    <i class="fas fa-shield-alt"></i> Regulated & Secure Investment Platform
+                </div>
+                <h1>Intelligent Wealth Management for the <span style="color:var(--primary)">Modern Era</span></h1>
+                <p>Experience institutional-grade investing with global access. From our headquarters in Boston to our strategic hub in Shanghai, we secure your future with transparency and high-yield strategies.</p>
+                <div class="flex" style="gap:15px; flex-wrap:wrap; justify-content: center;">
+                    <button class="btn btn-primary" onclick="scrollToPlans()">Start Investing</button>
+                    <button class="btn btn-outline" onclick="openAuth('signup')">Create Free Account</button>
+
+   
+
+
+                </div>
+                
+                <div class="trust-badges">
+                    <div class="trust-item"><i class="fas fa-check-circle"></i> SSL Encrypted</div>
+                    <div class="trust-item"><i class="fas fa-check-circle"></i> 24/7 Support</div>
+                    <div class="trust-item"><i class="fas fa-check-circle"></i> Instant Withdrawals</div>
+                    <div class="trust-item"><i class="fas fa-check-circle"></i> Global Compliance</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="container">
+        <div class="stats-bar">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>$500M+</h3>
+                    <p>Assets Under Management</p>
+                </div>
+                <div class="stat-item">
+                    <h3>120K+</h3>
+                    <p>Active Investors</p>
+                </div>
+                <div class="stat-item">
+                    <h3>15+</h3>
+                    <p>Countries Served</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4.9/5</h3>
+                    <p>Client Rating</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Presence -->
+    <section class="section-padding" id="about">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 60px;">
+                <h2>Global Footprint</h2>
+                <p style="color:var(--gray); max-width:600px; margin:10px auto;">Strategically located to serve investors across major financial markets.</p>
+            </div>
+            <div class="grid locations-grid">
+                <div class="location-card">
+                    <div class="location-icon"><i class="fas fa-flag-usa"></i></div>
+                    <h3>United States</h3>
+                    <p style="color:var(--gray); margin:10px 0;">Boston, MA</p>
+                    <p style="font-size:0.9rem;">Global Headquarters & Primary Trading Desk</p>
+                </div>
+                <div class="location-card">
+                    <div class="location-icon"><i class="fas fa-dragon"></i></div>
+                    <h3>China</h3>
+                    <p style="color:var(--gray); margin:10px 0;">Shanghai Branch</p>
+                    <p style="font-size:0.9rem;">Asia-Pacific Strategic Investment Hub</p>
+                </div>
+                <div class="location-card">
+                    <div class="location-icon"><i class="fas fa-globe-africa"></i></div>
+                    <h3>Africa</h3>
+                    <p style="color:var(--gray); margin:10px 0;">Lagos & Accra</p>
+                    <p style="font-size:0.9rem;">Emerging Markets & Mobile Money Integration</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security & Privacy -->
+    <section class="section-padding security-section" id="security">
+        <div class="container">
+            <div class="grid security-grid">
+                <div class="security-content">
+                    <div class="badge" style="background:rgba(0,200,83,0.1); color:var(--success); border-color:rgba(0,200,83,0.2);">
+                        <i class="fas fa-lock"></i> Bank-Grade Security
+                    </div>
+                    <h2>Your Privacy & Security Are Our Priority</h2>
+                    <p style="color:var(--gray);">We employ state-of-the-art encryption and compliance protocols to ensure your data and funds are protected at all times.</p>
+                    
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                            <div>
+                                <h4>256-Bit SSL Encryption</h4>
+                                <p style="font-size:0.9rem; color:var(--gray);">All data transmission is fully encrypted.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-user-shield"></i></div>
+                            <div>
+                                <h4>KYC & AML Compliance</h4>
+                                <p style="font-size:0.9rem; color:var(--gray);">Strict identity verification to prevent fraud.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-database"></i></div>
+                            <div>
+                                <h4>Cold Storage Wallets</h4>
+                                <p style="font-size:0.9rem; color:var(--gray);">Majority of assets stored offline for maximum safety.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-outline" onclick="alert('Privacy Policy: We do not sell your data. All information is encrypted and used solely for account management.')">Read Privacy Policy</a>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Security Technology" class="security-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Team -->
+    <section class="section-padding" id="team">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 60px;">
+                <h2>Board of Directors</h2>
+                <p style="color:var(--gray);">Led by industry veterans with decades of experience.</p>
+            </div>
+            <div class="grid team-grid">
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="https://ui-avatars.com/api/?name=Abigail+Johnson&size=400&background=0a2540&color=fff" alt="CEO">
+                    </div>
+                    <div class="team-info">
+                        <div class="team-role">Chairman & CEO</div>
+                        <h3>Abigail Johnson</h3>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="https://ui-avatars.com/api/?name=Kathleen+Murphy&size=400&background=0a2540&color=fff" alt="President">
+                    </div>
+                    <div class="team-info">
+                        <div class="team-role">President</div>
+                        <h3>Kathleen Murphy</h3>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="https://ui-avatars.com/api/?name=Joel+Akese&size=400&background=d71e28&color=fff" alt="Director">
+                    </div>
+                    <div class="team-info">
+                        <div class="team-role">Regional Director (Africa)</div>
+                        <h3>Ernest Asamoah</h3>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="https://ui-avatars.com/api/?name=Michael+Chen&size=400&background=0a2540&color=fff" alt="Head of Asia">
+                    </div>
+                    <div class="team-info">
+                        <div class="team-role">Head of Asia Ops</div>
+                        <h3>Michael Chen</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Reviews -->
+    <section class="section-padding reviews-section" id="reviews">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 60px;">
+                <h2>What Our Clients Say</h2>
+                <p style="color:var(--gray);">Trusted by over 120,000 investors worldwide.</p>
+            </div>
+            <div class="grid reviews-grid">
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"The platform is incredibly intuitive. I love that I can deposit via Mobile Money and withdraw directly to my US bank. The returns on the Growth plan have been consistent."</p>
+                    <div class="client-profile">
+                        <img src="https://ui-avatars.com/api/?name=Sarah+M&size=100" class="client-avatar" alt="Client">
+                        <div class="client-details">
+                            <h4>Sarah Mitchell</h4>
+                            <span>New York, USA <i class="fas fa-check-circle verified-badge"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"As an investor based in Shanghai, having a local office gave me confidence. The team is professional, and the security measures are top-notch. Highly recommended."</p>
+                    <div class="client-profile">
+                        <img src="https://ui-avatars.com/api/?name=Wei+Zhang&size=100" class="client-avatar" alt="Client">
+                        <div class="client-details">
+                            <h4>Wei Zhang</h4>
+                            <span>Shanghai, China <i class="fas fa-check-circle verified-badge"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"I was skeptical at first, but the transparency won me over. Joel's team in Africa provided excellent support when setting up my corporate account. Best decision I made."</p>
+                    <div class="client-profile">
+                        <img src="https://ui-avatars.com/api/?name=Kwame+A&size=100" class="client-avatar" alt="Client">
+                        <div class="client-details">
+                            <h4>Kwame Asante</h4>
+                            <span>Accra, Ghana <i class="fas fa-check-circle verified-badge"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Plans -->
+    <section class="section-padding" id="plans">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 60px;">
+                <h2>Investment Plans</h2>
+                <p style="color:var(--gray);">Choose a strategy that aligns with your financial goals.</p>
+            </div>
+            <div class="grid plans-grid">
+                <div class="plan-card">
+                    <h3>Starter</h3>
+                    <div class="price">5%<span>/week</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Min Deposit: $50</li>
+                        <li><i class="fas fa-check"></i> Duration: 30 Days</li>
+                        <li><i class="fas fa-check"></i> Basic Support</li>
+                        <li><i class="fas fa-check"></i> Weekly Payouts</li>
+                    </ul>
+                    <button class="btn btn-outline" style="width:100%" onclick="openWallet('Starter')">Choose Plan</button>
+                </div>
+                <div class="plan-card featured">
+                    <div class="popular-tag">MOST POPULAR</div>
+                    <h3>Growth Pro</h3>
+                    <div class="price">12%<span>/month</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Min Deposit: $500</li>
+                        <li><i class="fas fa-check"></i> Duration: 60 Days</li>
+                        <li><i class="fas fa-check"></i> Priority Support</li>
+                        <li><i class="fas fa-check"></i> Zero Withdrawal Fees</li>
+                        <li><i class="fas fa-check"></i> Capital Protection</li>
+                    </ul>
+                    <button class="btn btn-primary" style="width:100%" onclick="openWallet('Growth Pro')">Choose Plan</button>
+                </div>
+                <div class="plan-card">
+                    <h3>Elite Corp</h3>
+                    <div class="price">25%<span>/quarter</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Min Deposit: $5,000</li>
+                        <li><i class="fas fa-check"></i> Duration: 90 Days</li>
+                        <li><i class="fas fa-check"></i> Dedicated Manager</li>
+                        <li><i class="fas fa-check"></i> Tax Consultation</li>
+                        <li><i class="fas fa-check"></i> Insurance Coverage</li>
+                    </ul>
+                    <button class="btn btn-outline" style="width:100%" onclick="openWallet('Elite Corp')">Choose Plan</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="grid footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="footer-logo">FidelityPrime</a>
+                    <p class="footer-desc">Empowering investors globally with secure, transparent, and high-yield financial solutions. Your future, code it yourself.</p>
+                    <div style="display:flex; gap:15px;">
+                        <a href="#" style="color:white; font-size:1.2rem;" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color:white; font-size:1.2rem;" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color:white; font-size:1.2rem;" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" style="color:white; font-size:1.2rem;" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#team">Leadership</a></li>
+                        <li><a href="#reviews">Success Stories</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">System Status</a></li>
+                        <li><a href="https://wa.me/233534381128">Live Chat</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="alert('Privacy Policy: We prioritize your data security. No third-party sharing.')">Privacy Policy</a></li>
+                        <li><a href="#" onclick="alert('Terms of Service: By using this platform, you agree to our investment terms.')">Terms of Service</a></li>
+                        <li><a href="#" onclick="alert('Risk Disclosure: All investments carry risk. Past performance is not indicative of future results.')">Risk Disclosure</a></li>
+                        <li><a href="#">AML Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="legal-bar">
+                <p>&copy; 2026 Fidelity Prime Financial Services. All Rights Reserved.</p>
+                <p>Disclaimer: This is a demo portfolio site. Not affiliated with actual Fidelity Investments.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/233534381128?text=Hello%20Fidelity%20Prime,%20I%20would%20like%20to%20inquire%20about%20investing." class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Auth Modal -->
+    <div class="modal" id="authModal" role="dialog" aria-labelledby="authTitle">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('authModal')" aria-label="Close modal">&times;</span>
+            <h2 class="text-center" id="authTitle" style="margin-bottom:20px;">Welcome Back</h2>
+            <form onsubmit="handleAuth(event)">
+                <div class="form-group">
+                    <label for="authEmail">Email Address</label>
+                    <input type="email" id="authEmail" class="form-control" required placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="authPassword">Password</label>
+                    <input type="password" id="authPassword" class="form-control" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%">Submit</button>
+            </form>
+            <p class="text-center" style="margin-top:20px; font-size:0.9rem; color:var(--gray);">
+                <span id="authSwitchText">New here?</span> 
+                <a href="#" onclick="toggleAuthMode()" style="color:var(--primary); font-weight:600;">Create an account</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Wallet/Transaction Modal - UPDATED WITH REVERSED FLOW -->
+    <div class="modal" id="walletModal" role="dialog" aria-labelledby="walletTitle">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('walletModal')" aria-label="Close modal">&times;</span>
+            <h2 class="text-center" id="walletTitle" style="margin-bottom:10px;">Fund Your Account</h2>
+            <p class="text-center" style="color:var(--gray); margin-bottom:20px;" id="planNameDisplay">Plan: Starter</p>
+            
+            <div class="wallet-tabs" role="tablist">
+                <button class="tab-btn active" onclick="switchTab('deposit')" role="tab" aria-selected="true">Deposit</button>
+                <button class="tab-btn" onclick="switchTab('withdraw')" role="tab" aria-selected="false">Withdraw</button>
+            </div>
+
+            <!-- DEPOSIT SECTION -->
+            <div id="depositSection" role="tabpanel">
+                <!-- WhatsApp Notification Banner -->
+                <div class="whatsapp-notice">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                    <div>
+                        <strong>📱 Incoming WhatsApp Notification</strong>
+                        <p>
+                            Upon submission, a WhatsApp message will be sent from <strong>0534381128</strong> to your number with payment instructions.
+                        </p>
+                    </div>
+                </div>
+
+                <form onsubmit="handleDeposit(event)">
+                    <div class="form-group">
+                        <label for="clientWhatsApp">Your WhatsApp Number</label>
+                        <input type="tel" id="clientWhatsApp" class="form-control" required placeholder="e.g. 0534381128" pattern="[0-9]{10}">
+                    </div>
+                    <div class="form-group">
+                        <label for="depositAmount">Deposit Amount (USD)</label>
+                        <input type="number" id="depositAmount" class="form-control" required placeholder="Min $50" min="50" step="0.01">
+                    </div>
+                    
+                    <!-- Payment Details Card -->
+                    <div class="payment-details-card">
+                        <h4>
+                            <i class="fas fa-money-bill-wave" aria-hidden="true"></i>
+                            Payment Details
+                        </h4>
+                        <div>
+                            <div>
+                                <span>📱 Admin Number</span>
+                                <strong>0534381128</strong>
+                            </div>
+                            <div>
+                                <span>👤 Recipient Name</span>
+                                <strong>Joel Akese (jTECH)</strong>
+                            </div>
+                            <div>
+                                <span>💳 Payment Methods</span>
+                                <strong>MTN MoMo • Vodafone Cash</strong>
+                            </div>
+                        </div>
+                        <p>
+                            <i class="fas fa-info-circle" aria-hidden="true"></i> 
+                            Check your WhatsApp for instructions from 0534381128 to complete this payment.
+                        </p>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-whatsapp" style="width:100%">
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                        Request Payment Instructions
+                    </button>
+                </form>
+            </div>
+
+            <!-- WITHDRAWAL SECTION -->
+            <div id="withdrawSection" role="tabpanel">
+                <!-- 50% Fee Notification -->
+                <div class="fee-notice">
+                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                    <div>
+                        <strong>⚠️ Withdrawal Fee Notice</strong>
+                <p>
+                            To process your withdrawal, a payment recommendation of <strong>50% of your withdrawal amount</strong> is required. Admin will contact you via WhatsApp.
+                        </p>
+                    </div>
+                </div>
+
+                <form onsubmit="handleWithdrawal(event)">
+                    <div class="form-group">
+                        <label for="clientWhatsAppWithdraw">Your WhatsApp Number</label>
+                        <input type="tel" id="clientWhatsAppWithdraw" class="form-control" required placeholder="e.g. 0534381128" pattern="[0-9]{10}">
+                    </div>
+                    <div class="form-group">
+                        <label for="withdrawAmount">Withdrawal Amount (USD)</label>
+                        <input type="number" id="withdrawAmount" class="form-control" required placeholder="Enter amount" min="10" step="0.01" oninput="calculateWithdrawalFee()">
+                    </div>
+                    
+                    <!-- Fee Calculator Display -->
+                    <div id="feeCalculator" style="display: none;">
+                        <h4>
+                            <i class="fas fa-calculator" aria-hidden="true"></i>
+                            Fee Breakdown
+                        </h4>
+                        <div>
+                            <div>
+                                <span>Withdrawal Amount:</span>
+                                <strong id="displayWithdrawAmount">$0.00</strong>
+                            </div>
+                            <div>
+                                <span>50% Processing Fee:</span>
+                                <strong id="displayFeeAmount">$0.00</strong>
+                            </div>
+                            <div>
+                                <span>Total to Pay:</span>
+                                <strong id="displayTotalFee">$0.00</strong>
+                            </div>
+                        </div>
+                        <p>
+                            <i class="fas fa-shield-alt" aria-hidden="true"></i> 
+                            This one-time fee ensures secure processing. Full withdrawal released within 24hrs after confirmation.
+                        </p>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-withdraw" id="withdrawBtn" style="width:100%; display: none;">
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                        Request Withdrawal Instructions
+                    </button>
+                </form>
+            </div>
+
+            <p style="font-size:0.75rem; color:var(--gray); text-align:center; margin-top:15px;">
+                <i class="fas fa-lock" aria-hidden="true"></i> Secured by 256-bit SSL Encryption
+            </p>
+        </div>
+    </div>
+
+<script>
+    // --- Navigation & UI ---
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const expanded = navLinks.classList.contains('active');
+        mobileToggle.setAttribute('aria-expanded', expanded);
+    });
+
+    // Smooth Scroll
+    function scrollToPlans() {
+        document.getElementById('plans').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Dark Mode with localStorage persistence
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode');
+        const icon = document.querySelector('.theme-toggle i');
+        const isDark = document.body.classList.contains('dark-mode');
+        
+        if(isDark){
+            icon.classList.replace('fa-moon', 'fa-sun');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            icon.classList.replace('fa-sun', 'fa-moon');
+            localStorage.setItem('theme', 'light');
+        }
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('theme');
+        if(savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            document.querySelector('.theme-toggle i').classList.replace('fa-moon', 'fa-sun');
+        }
+    });
+
+    // --- Auth Logic ---
+    let isLoggedIn = false;
+    let isLoginMode = true;
+
+    function openAuth(mode) {
+        document.getElementById('authModal').classList.add('active');
+        isLoginMode = mode === 'login';
+        updateAuthUI();
+        setTimeout(() => document.getElementById('authEmail')?.focus(), 300);
+    }
+
+    function toggleAuthMode() {
+        isLoginMode = !isLoginMode;
+        updateAuthUI();
+    }
+
+    function updateAuthUI() {
+        const title = document.getElementById('authTitle');
+        const switchText = document.getElementById('authSwitchText');
+        const switchLink = document.querySelector('#authModal a');
+        
+        if(isLoginMode) {
+            title.innerText = 'Welcome Back';
+            switchText.innerText = "New here?";
+            switchLink.innerText = "Create an account";
+        } else {
+            title.innerText = 'Create Account';
+            switchText.innerText = "Already have an account?";
+            switchLink.innerText = "Sign In";
+        }
+    }
+
+    function handleAuth(e) {
+        e.preventDefault();
+        isLoggedIn = true;
+        closeModal('authModal');
+        updateAuthButtons();
+        alert(isLoginMode ? "Login Successful! Welcome to Fidelity Prime." : "Account Created Successfully!");
+    }
+
+    function logout() {
+        isLoggedIn = false;
+        updateAuthButtons();
+        alert("You have been logged out securely.");
+    }
+
+    function updateAuthButtons() {
+        const loginBtn = document.querySelector('.btn-outline');
+        const signupBtn = document.querySelector('.auth-group .btn-primary'); 
+        const logoutBtn = document.getElementById('logoutBtn');
+
+        if(isLoggedIn) {
+            loginBtn.style.display = 'none';
+            signupBtn.style.display = 'none';
+            logoutBtn.style.display = 'inline-block';
+        } else {
+            loginBtn.style.display = 'inline-block';
+            signupBtn.style.display = 'inline-block';
+            logoutBtn.style.display = 'none';
+        }
+    }
+
+    // --- Wallet Logic - UPDATED FOR REVERSED FLOW ---
+    function openWallet(plan) {
+        if(!isLoggedIn) {
+            alert("Please log in to invest.");
+            openAuth('login');
+            return;
+        }
+        document.getElementById('planNameDisplay').innerText = `Plan: ${plan}`;
+        document.getElementById('walletModal').classList.add('active');
+        switchTab('deposit');
+    }
+
+    function switchTab(tab) {
+        const tabs = document.querySelectorAll('.tab-btn');
+        tabs.forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+        });
+        event.target.classList.add('active');
+        event.target.setAttribute('aria-selected', 'true');
+
+        const depositSection = document.getElementById('depositSection');
+        const withdrawSection = document.getElementById('withdrawSection');
+        const title = document.getElementById('walletTitle');
+        
+        if(tab === 'deposit') {
+            title.innerText = "Fund Your Account";
+            depositSection.style.display = 'block';
+            withdrawSection.style.display = 'none';
+            depositSection.setAttribute('aria-hidden', 'false');
+            withdrawSection.setAttribute('aria-hidden', 'true');
+        } else {
+            title.innerText = "Withdraw Funds";
+            depositSection.style.display = 'none';
+            withdrawSection.style.display = 'block';
+            depositSection.setAttribute('aria-hidden', 'true');
+            withdrawSection.setAttribute('aria-hidden', 'false');
+            document.getElementById('feeCalculator').style.display = 'none';
+            document.getElementById('withdrawBtn').style.display = 'none';
+            document.getElementById('withdrawAmount').value = '';
+            document.getElementById('clientWhatsAppWithdraw').value = '';
+        }
+    }
+
+    // Calculate 50% withdrawal fee in real-time
+    function calculateWithdrawalFee() {
+        const amount = parseFloat(document.getElementById('withdrawAmount').value) || 0;
+        const fee = amount * 0.5;
+        const total = fee;
+        
+        if(amount > 0) {
+            document.getElementById('feeCalculator').style.display = 'block';
+            document.getElementById('withdrawBtn').style.display = 'flex';
+            document.getElementById('displayWithdrawAmount').innerText = '$' + amount.toFixed(2);
+            document.getElementById('displayFeeAmount').innerText = '$' + fee.toFixed(2);
+            document.getElementById('displayTotalFee').innerText = '$' + total.toFixed(2);
+        } else {
+            document.getElementById('feeCalculator').style.display = 'none';
+            document.getElementById('withdrawBtn').style.display = 'none';
+        }
+    }
+
+    // Handle Deposit - REVERSED FLOW
+    function handleDeposit(e) {
+        e.preventDefault();
+        const amount = document.getElementById('depositAmount').value;
+        const clientNumber = document.getElementById('clientWhatsApp').value;
+        const adminNumber = '0534381128';
+        
+        // NOTE: Actual automated WhatsApp sending requires a backend server API (e.g., Twilio/Meta).
+        // This frontend simulation notifies the user that the process has started.
+        // In a real scenario, you would send this data to your server here.
+        
+        // Show confirmation alert matching user request
+        alert(`✅ Request Submitted!\n\n📱 A WhatsApp message has been sent from ${adminNumber} to ${clientNumber}.\n\n💰 Amount: $${amount}\n📲 Please check your WhatsApp for payment instructions to submit the payment on the given number.`);
+        
+        // Reset form
+        e.target.reset();
+        closeModal('walletModal');
+    }
+
+    // Handle Withdrawal - REVERSED FLOW
+    function handleWithdrawal(e) {
+        e.preventDefault();
+        const amount = parseFloat(document.getElementById('withdrawAmount').value) || 0;
+        const fee = amount * 0.5;
+        const clientNumber = document.getElementById('clientWhatsAppWithdraw').value;
+        const adminNumber = '0534381128';
+        
+        // NOTE: Actual automated WhatsApp sending requires a backend server API.
+        // This frontend simulation notifies the user that the process has started.
+        
+        // Show detailed confirmation matching user request
+        alert(`⚠️ Withdrawal Request Initiated!\n\n📤 Withdrawal Amount: $${amount.toFixed(2)}\n💸 Required Fee (50%): $${fee.toFixed(2)}\n\n📱 A WhatsApp message has been sent from ${adminNumber} to ${clientNumber}.\n\n✅ Please check your WhatsApp for instructions on how to make the payment recommendation.`);
+        
+        // Reset form
+        e.target.reset();
+        document.getElementById('feeCalculator').style.display = 'none';
+        document.getElementById('withdrawBtn').style.display = 'none';
+        closeModal('walletModal');
+    }
+
+    function closeModal(id) {
+        document.getElementById(id).classList.remove('active');
+    }
+
+    // Close modal on outside click & Escape key
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.classList.remove('active');
+        }
+    }
+    
+    document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape') {
+            document.querySelectorAll('.modal.active').forEach(modal => {
+                modal.classList.remove('active');
+            });
+        }
+    });
+    
+    // Prevent form submission on Enter in modals
+    document.querySelectorAll('.modal form').forEach(form => {
+        form.addEventListener('keypress', (e) => {
+            if(e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+                e.preventDefault();
+            }
+        });
+    });
+</script>
+  
+</body>
+</html>
+

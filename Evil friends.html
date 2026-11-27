@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evil Friends - Be Aware | jTECH code your future</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo i { color: #ef4444; }
+
+        .brand-tag {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            font-weight: 400;
+            display: block;
+            margin-top: -2px;
+        }
+
+        /* Navigation Links */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.3rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #25D366;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover { color: white; }
+        nav a:hover::after { width: 100%; }
+
+        /* WhatsApp Button in Nav */
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366 0%, #075E54 100%);
+            color: white;
+            padding: 0.7rem 1.4rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .whatsapp-btn:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); }
+        .whatsapp-btn i { font-size: 1.2rem; }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        /* Hero Section */
+        #home {
+            background: linear-gradient(135deg, rgba(15,23,42,0.92) 0%, rgba(30,58,138,0.92) 100%), 
+                        url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200') center/cover;
+            color: white;
+            padding: 9rem 2rem 7rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            margin-bottom: 1.2rem;
+            font-weight: 800;
+            text-shadow: 2px 3px 8px rgba(0,0,0,0.4);
+            animation: fadeInDown 0.8s ease;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.35rem;
+            max-width: 750px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease 0.2s both;
+            font-weight: 300;
+        }
+
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.6rem;
+            color: #0f172a;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            font-size: 1.15rem;
+            margin-bottom: 3.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            margin: 1rem auto;
+            border-radius: 3px;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.2rem;
+            margin-bottom: 4rem;
+        }
+
+        .topic-card {
+            background: white;
+            border-radius: 18px;
+            padding: 2.2rem;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-left: 5px solid #3b82f6;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topic-card:hover { transform: translateY(-6px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
+        .topic-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(59,130,246,0.03), rgba(139,92,246,0.03));
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .topic-card:hover::before { opacity: 1; }
+
+        .topic-card h2 {
+            color: #0f172a;
+            font-size: 1.45rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 600;
+        }
+
+        .topic-card h2 i { color: #ef4444; font-size: 1.6rem; }
+        .topic-number {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .topic-card p { color: #475569; text-align: justify; }
+
+        /* Image Sections */
+        .image-wrapper {
+            margin: 4rem 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-caption {
+            background: rgba(15,23,42,0.85);
+            color: white;
+            padding: 1.2rem;
+            text-align: center;
+            font-size: 1.05rem;
+            backdrop-filter: blur(8px);
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Extra Content Sections */
+        .content-section {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+            border: 1px solid #e2e8f0;
+        }
+
+        .content-section h2 { color: #0f172a; margin-bottom: 1.5rem; font-size: 2rem; }
+        .content-section p { color: #475569; margin-bottom: 1.2rem; text-align: justify; }
+
+        /* WhatsApp Flowchart Section */
+        .whatsapp-flow {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 5rem 2rem;
+            border-radius: 25px;
+            margin: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whatsapp-flow::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(37,211,102,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .flow-title { font-size: 2.5rem; margin-bottom: 3rem; position: relative; z-index: 2; }
+        .flow-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .flow-step {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 18px;
+            width: 280px;
+            border: 1px solid rgba(255,255,255,0.15);
+            transition: all 0.3s ease;
+        }
+
+        .flow-step:hover { transform: translateY(-5px); background: rgba(255,255,255,0.12); }
+
+        .flow-icon { font-size: 2.5rem; margin-bottom: 1rem; color: #25D366; }
+        .flow-step h3 { margin-bottom: 0.8rem; font-size: 1.3rem; }
+        .flow-step p { opacity: 0.85; font-size: 0.95rem; margin: 0; text-align: center; }
+
+        .flow-arrow {
+            align-self: center;
+            font-size: 2rem;
+            color: rgba(255,255,255,0.3);
+            animation: pulseArrow 1.5s infinite;
+        }
+
+        @keyframes pulseArrow { 0%, 100% { opacity: 0.3; transform: translateX(0); } 50% { opacity: 0.8; transform: translateX(5px); } }
+
+        .flow-cta-btn {
+            margin-top: 3rem;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            padding: 1.2rem 3.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(37,211,102,0.4);
+            position: relative;
+            z-index: 2;
+        }
+
+        .flow-cta-btn:hover { transform: scale(1.05); box-shadow: 0 12px 35px rgba(37,211,102,0.5); }
+
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-whatsapp:hover { transform: scale(1.1) rotate(5deg); }
+        .floating-whatsapp::after {
+            content: ''; position: absolute; width: 100%; height: 100%; border-radius: 50%; background: #25D366; opacity: 0; animation: ripple 2s infinite;
+        }
+
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        @keyframes ripple { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.8); opacity: 0; } }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-brand { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .footer-tagline { font-size: 1rem; opacity: 0.85; margin-bottom: 1rem; font-style: italic; }
+        .footer-copy { font-size: 0.9rem; opacity: 0.7; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.15); }
+
+        /* Responsive Navigation */
+        @media (max-width: 900px) {
+            .mobile-menu-btn { display: block; }
+            
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: #0f172a;
+                flex-direction: column;
+                padding: 6rem 2rem 2rem;
+                gap: 1.5rem;
+                transition: right 0.4s ease;
+                box-shadow: -5px 0 20px rgba(0,0,0,0.3);
+                z-index: 999;
+            }
+
+            nav ul.active { right: 0; }
+            nav a { font-size: 1.1rem; }
+            
+            .header-container { position: relative; }
+            .hero h1 { font-size: 2.8rem; padding: 0 1rem; }
+            .hero p { font-size: 1.1rem; }
+            .topics-grid { grid-template-columns: 1fr; }
+            .flow-container { flex-direction: column; align-items: center; }
+            .flow-arrow { transform: rotate(90deg); margin: 1rem 0; animation: pulseArrowVert 1.5s infinite; }
+            @keyframes pulseArrowVert { 0%, 100% { opacity: 0.3; transform: translateY(0) rotate(90deg); } 50% { opacity: 0.8; transform: translateY(5px) rotate(90deg); } }
+            .content-section { padding: 2rem 1.5rem; }
+            .floating-whatsapp { width: 55px; height: 55px; font-size: 1.6rem; bottom: 20px; right: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="header-container">
+            <div>
+                <a href="#home" class="logo"><i class="fas fa-exclamation-triangle"></i> Evil Friends</a>
+                <span class="brand-tag">by jTECH code your future</span>
+            </div>
+            
+            <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#warning-signs">Warning Signs</a></li>
+                    <li><a href="#psychology">Psychology & Healing</a></li>
+                    <li><a href="#break-free">How to Break Free</a></li>
+
+<li><a href="index.html">Back to Portfolio 💼</a></li>
+             
+       <li><a href="#contact" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Chat with Joelkoder</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="home">
+        <h1>Be aware of Evil Friends</h1>
+        <p>Not everyone who smiles at you is your friend. Learn to recognize the signs of toxic relationships, protect your mental peace, and build healthier connections.</p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div id="warning-signs">
+            <h2 class="section-title">Warning Signs to Watch For</h2>
+            <p class="section-subtitle">Understanding these patterns can save you years of emotional drain and help you cultivate genuine, uplifting relationships.</p>
+
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <h2><span class="topic-number">1</span><i class="fas fa-user-secret"></i> Manipulation Tactics</h2>
+                    <p>Evil friends often use manipulation to control your actions and decisions. They may guilt-trip you into doing things you're uncomfortable with, twist your words, or use emotional blackmail. They make you feel responsible for their happiness and problems, creating an unhealthy power dynamic in the relationship. Recognizing these patterns is the first step toward protecting yourself from psychological harm.</p>
+                </div>
+
+                <div class="topic-card">
+                    <h2><span class="topic-number">2</span><i class="fas fa-comments"></i> Constant Gossip and Betrayal</h2>
+                    <p>True friends keep your secrets safe, but evil friends share your private information with others. They gossip about you behind your back, reveal your vulnerabilities to gain social advantage, and betray your trust repeatedly. If you notice your personal stories becoming public knowledge or being used against you, this is a major red flag that someone in your circle doesn't have your best interests at heart.</p>
+                </div>
+
+                <div class="topic-card">
+                    <h2><span class="topic-number">3</span><i class="fas fa-frown"></i> Jealousy and Competition</h2>
+                    <p>Instead of celebrating your successes, evil friends feel threatened by your achievements. They minimize your accomplishments, make backhanded compliments, or try to one-up you constantly. Their jealousy manifests as subtle sabotage, criticism disguised as concern, or outright dismissal of your goals. A genuine friend lifts you up; a toxic one tries to pull you down to their level.</p>
+                </div>
+
+                <div class="topic-card">
+                    <h2><span class="topic-number">4</span><i class="fas fa-battery-empty"></i> One-Sided Relationship</h2>
+                    <p>Evil friends are takers, not givers. They expect you to be available whenever they need you but are mysteriously absent when you require support. The relationship revolves entirely around their needs, problems, and schedule. You find yourself constantly giving time, energy, and resources while receiving little to nothing in return. This imbalance drains you emotionally and leaves you feeling used and unappreciated.</p>
+                </div>
+
+                <div class="topic-card">
+                    <h2><span class="topic-number">5</span><i class="fas fa-theater-masks"></i> Fake Support and Insincerity</h2>
+                    <p>These friends pretend to support you but their actions tell a different story. They say all the right things but never follow through. Their sympathy feels performative, and their encouragement lacks genuine enthusiasm. They may attend your events but seem disengaged, or offer help they never actually provide. This disconnect between words and actions reveals their true intentions and lack of authentic care.</p>
+                </div>
+
+                <div class="topic-card">
+                    <h2><span class="topic-number">6</span><i class="fas fa-bomb"></i> Drama and Chaos Creation</h2>
+                    <p>Evil friends thrive on drama and often create unnecessary conflict in your life. They stir up trouble between you and others, exaggerate small issues, and seem to always be in the middle of some crisis. Being around them leaves you emotionally exhausted as you're constantly dealing with their manufactured problems. They feed off the chaos they create and may even blame you when things go wrong.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image 1 -->
+        <div class="image-wrapper">
+            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1200" alt="Toxic friendship dynamics">
+            <div class="image-caption"><i class="fas fa-info-circle"></i> Recognize the signs before it's too late</div>
+        </div>
+
+        <div class="topics-grid">
+            <div class="topic-card">
+                <h2><span class="topic-number">7</span><i class="fas fa-mask"></i> Two-Faced Behavior</h2>
+                <p>Evil friends act differently around you than they do with others. They're sweet to your face but critical behind your back. They may flatter you excessively in person while mocking you to mutual friends. This two-faced behavior creates confusion and mistrust. If you notice inconsistencies in how they treat different people or hear conflicting reports about what they say, you're likely dealing with someone who lacks integrity.</p>
+            </div>
+
+            <div class="topic-card">
+                <h2><span class="topic-number">8</span><i class="fas fa-hand-holding-usd"></i> Using You for Personal Gain</h2>
+                <p>Toxic friends see you as a resource rather than a person. They befriend you for what you can provide—money, connections, favors, or social status. Once they've extracted what they want, they lose interest or move on to the next target. They rarely reciprocate and may even exploit your generosity without guilt. If the friendship feels transactional and you're always the one giving, you're being used.</p>
+            </div>
+
+            <div class="topic-card">
+                <h2><span class="topic-number">9</span><i class="fas fa-arrow-down"></i> Undermining Your Confidence</h2>
+                <p>Evil friends subtly or overtly attack your self-esteem. They criticize your appearance, choices, abilities, or dreams under the guise of "being honest" or "helping." Over time, this constant negativity erodes your confidence and makes you doubt yourself. They may discourage you from pursuing opportunities or paint themselves as the only one who truly knows what's best for you, creating dependency.</p>
+            </div>
+
+            <div class="topic-card">
+                <h2><span class="topic-number">10</span><i class="fas fa-door-open"></i> Refusing to Take Responsibility</h2>
+                <p>When confronted about hurtful behavior, evil friends never apologize sincerely. They deflect blame, make excuses, or turn the situation around to make you the problem. They refuse to acknowledge their mistakes and may even gaslight you into questioning your own perceptions. This lack of accountability means the toxic patterns will never change, and you'll continue to be hurt without resolution or growth in the relationship.</p>
+            </div>
+        </div>
+
+        <!-- Extra Content 1 -->
+        <div id="psychology" class="content-section">
+            <h2>Understanding the Psychology of Toxic Friendships</h2>
+            <p>Toxic friendships rarely appear out of nowhere. They often start with small boundary violations that gradually escalate over time. What begins as harmless teasing or occasional flaking can evolve into emotional manipulation, consistent disrespect, and psychological exhaustion. Understanding this gradual progression is crucial because it allows you to catch the warning signs early before the relationship becomes deeply entrenched and emotionally damaging.</p>
+            <p>Psychologists note that many people tolerate toxic friendships due to a fear of loneliness, past trauma, or conditioned people-pleasing behaviors. We often convince ourselves that "they'll change" or "it's not that bad," ignoring the toll it takes on our mental health. The reality is that your peace is non-negotiable. You don't need a reason to distance yourself from someone who consistently drains your energy or diminishes your self-worth. Setting boundaries isn't selfish—it's essential self-preservation.</p>
+            <p>Recognizing the impact of these relationships on your daily life is a powerful first step. Do you feel anxious before meeting them? Do you constantly walk on eggshells around them? Are you emotionally exhausted after every interaction? These physical and psychological responses are your body's way of signaling danger. Trust those instincts. Your mental clarity, confidence, and overall well-being should never be compromised to maintain a friendship that only benefits one side.</p>
+        </div>
+
+        <!-- Image 2 -->
+        <div class="image-wrapper">
+            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200" alt="Breaking free from toxic friendships">
+            <div class="image-caption"><i class="fas fa-lightbulb"></i> Your mental health matters - choose quality over quantity</div>
+        </div>
+
+        <!-- Extra Content 2 -->
+        <div id="break-free" class="content-section">
+            <h2>How to Break Free & Rebuild Healthy Connections</h2>
+            <p>Distance doesn't always require a dramatic confrontation. Sometimes, the most powerful move is a gradual fade-out combined with firm boundaries. Reduce availability, stop sharing personal information, and politely decline invitations that drain you. Over time, toxic individuals naturally lose interest when they realize they can no longer manipulate or extract value from you. This quiet approach protects your peace while minimizing unnecessary conflict or backlash.</p>
+            <p>Rebuilding your social circle starts with self-awareness and intentional connection. Seek out people who celebrate your wins, respect your time, and communicate openly. Healthy friendships are built on mutual respect, consistent effort, and emotional safety. Pay attention to how you feel after spending time with new acquaintances. If you feel energized, heard, and valued, you've likely found someone worth investing in. Your future relationships should elevate you, not exhaust you.</p>
+            <p>Remember that healing from toxic friendships takes time. Allow yourself to grieve the loss of what you hoped the relationship would be, but don't romanticize the reality. Focus on rebuilding your self-trust and recognizing your own worth. Engage in activities that bring you joy, surround yourself with supportive communities, and practice self-compassion. You deserve relationships that feel like safe havens, not emotional battlegrounds.</p>
+        </div>
+
+        <!-- WhatsApp Flowchart -->
+        <div id="contact" class="whatsapp-flow">
+            <h2 class="flow-title">📱 How to Connect with Joelkoder</h2>
+            <div class="flow-container">
+                <div class="flow-step">
+                    <div class="flow-icon"><i class="fas fa-mouse-pointer"></i></div>
+                    <h3>Step 1: Click</h3>
+                    <p>Tap the WhatsApp button below or the floating icon on your screen.</p>
+                </div>
+                <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+                <div class="flow-step">
+                    <div class="flow-icon"><i class="fas fa-comment-dots"></i></div>
+                    <h3>Step 2: Message</h3>
+                    <p>Send a quick "Hi Joel" or describe your situation. I reply personally.</p>
+                </div>
+                <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+                <div class="flow-step">
+                    <div class="flow-icon"><i class="fas fa-shield-heart"></i></div>
+                    <h3>Step 3: Get Support</h3>
+                    <p>Receive honest advice, actionable steps, and ongoing guidance.</p>
+                </div>
+            </div>
+            <a href="https://wa.me/233534381128" class="flow-cta-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Start Chatting Now
+            </a>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/233534381128" class="floating-whatsapp" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-brand">jTECH code your future</div>
+        <div class="footer-tagline">Empowering minds, protecting peace | Built by Joelkoder</div>
+        <div class="footer-copy">&copy; 2024-2026 Evil Friends Awareness Project. All rights reserved. | <i class="fas fa-heart" style="color:#ef4444;"></i> Protect Your Peace</div>
+    </footer>
+
+    <!-- JavaScript for Mobile Navigation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('nav ul');
+            const navLinks = document.querySelectorAll('nav a');
+            const icon = menuBtn.querySelector('i');
+
+            // Toggle mobile menu
+            menuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+
+            // Close menu when clicking a link
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!navMenu.contains(e.target) && !menuBtn.contains(e.target) && navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
+
